@@ -1,0 +1,65 @@
+{
+  "id": "4652779",
+  "name": "50Pro",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "24584415",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "5013",
+      "name": "列表",
+      "font_class": "liebiao",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "446732",
+      "name": "邮件",
+      "font_class": "youjian",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "6267698",
+      "name": "邮件-实色",
+      "font_class": "email-s",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "7762180",
+      "name": "用户名",
+      "font_class": "ziyuanxhdpi",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "11399007",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "14013787",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e7c0",
+      "unicode_decimal": 59328
+    },
+    {
+      "icon_id": "17898096",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e68c",
+      "unicode_decimal": 59020
+    }
+  ]
+}
