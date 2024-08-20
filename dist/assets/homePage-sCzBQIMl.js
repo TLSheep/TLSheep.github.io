@@ -1,1 +1,0 @@
-import{_ as e,o as c,c as o}from"./index-eUyIu7cC.js";const t={},a={class:"container"};function s(n,_){return c(),o("div",a," 这里是主页 ")}const d=e(t,[["render",s],["__scopeId","data-v-a6904c67"]]);export{d as default};
