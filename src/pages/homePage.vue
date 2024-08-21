@@ -1,22 +1,19 @@
 <template>
-  <div class="container">
-    这里是主页
-  </div>
+  <div class="container">这里是主页</div>
 </template>
 <script setup>
-
 </script>
 <style scoped>
-.container{
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - var(--homepage-top-bar-height));
   width: 100vw;
   padding: 20vh 10vw;
   background-color: aquamarine;
   font-size: 48px;
-  }
+}
 .pro_btn {
   background-color: rebeccapurple;
   border-radius: 5px;
@@ -27,6 +24,5 @@
   font-size: 1.2rem;
   font-family: inherit;
   cursor: pointer;
-
 }
 </style>
