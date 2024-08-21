@@ -29,6 +29,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
+import { tab_card_status } from "../util";
 const router = useRouter();
 const current_chosen = ref(0);
 
@@ -48,7 +49,9 @@ onMounted(() => {
 
 function on_item_click(index) {
   current_chosen.value = index;
-  router.push("/P" + index);
+  tab_card_status.current_index = index;
+  if (tab_card_status.value === 1) router.push("/maoP" + index);
+  else if (tab_card_status.value === 2) router.push("/P" + index);
 }
 
 // function to_maomao() {

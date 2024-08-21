@@ -1,7 +1,9 @@
 <template>
-  <div class="box_container" ref="box_container">
-    <div class="box" v-for="i in 20" :key="i">
-      {{ i }}
+  <div class="container" @scroll="checkBoxes">
+    <div class="box_container" ref="box_container">
+      <div class="box" v-for="i in 20" :key="i">
+        {{ i }}
+      </div>
     </div>
   </div>
 </template>
@@ -34,16 +36,18 @@ onMounted(() => {
 });
 </script>
 <style scoped>
-.box_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.container {
   margin: 0;
   overflow-x: hidden;
   width: 100%;
   font-size: 30px;
   height: 100%;
+}
+.box_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .box_container > div {

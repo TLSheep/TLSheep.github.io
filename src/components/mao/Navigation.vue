@@ -40,33 +40,25 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { tab_card_status } from "../util";
 import Logo from "./icons/logo.vue";
 import GitHub from "./icons/GitHub.vue";
 
-const belong_type = ref(2);
+const belong_type = ref(tab_card_status.value);
 const router = useRouter();
 function to_mao() {
   if (belong_type.value === 1) return;
 
   belong_type.value = 1;
-  let num = get_url_number();
-  console.log(num);
-  if (num > 0) router.push("/maoP" + num);
+  tab_card_status.value = 1;
+  router.push("/maoP" + tab_card_status.current_index);
 }
 function to_lan() {
   if (belong_type.value === 2) return;
 
   belong_type.value = 2;
-  let num = get_url_number();
-  console.log(num);
-  if (num > 0) router.push("/P" + num);
-}
-
-function get_url_number() {
-  let url = window.location.href;
-  url = url.slice(url.lastIndexOf("/"));
-  if (url.length < 2) return -1;
-  return url.slice(url.lastIndexOf("P") + 1);
+  tab_card_status.value = 2;
+  router.push("/P" + tab_card_status.current_index);
 }
 </script>
 <style scoped>
