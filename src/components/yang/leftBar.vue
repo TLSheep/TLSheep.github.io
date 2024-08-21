@@ -1,28 +1,30 @@
 <template >
-  <div class="outer"> 
-  <button id="use_btn" style="position: absolute;z-index: -100;">
-    <audio id="change_song" src="audios/change_card.mp3"></audio>
-  </button>
-  <div class="container">
-    <div class="title"> {{ current_chosen===0?"主页":'Project '+current_chosen}}</div>
-    <div class="line"></div>
-    <div class="content">
-      <div
-        class="item"
-        :class="{ chosen_item: current_chosen === index }"
-        @click="on_item_click(index)"
-        v-for="index in 50"
-        :key="index"
-      >
-        {{ "Project " + index }}
+  <div class="outer">
+    <button id="use_btn" style="position: absolute; z-index: -100">
+      <audio id="change_song" src="audios/change_card.mp3"></audio>
+    </button>
+    <div class="container">
+      <div class="title">
+        {{ current_chosen === 0 ? "主页" : "Project " + current_chosen }}
+      </div>
+      <div class="line"></div>
+      <div class="content">
+        <div
+          class="item"
+          :class="{ chosen_item: current_chosen === index }"
+          @click="on_item_click(index)"
+          v-for="index in 50"
+          :key="index"
+        >
+          {{ "Project " + index }}
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="bottom_btn">
+        <button @click="to_maomao">MAO'S</button>
       </div>
     </div>
-    <div class="line"></div>
-    <div class="bottom_btn">
-      <button @click="()=>{router.push('/');current_chosen=0}">HOME</button>
-    </div>
   </div>
-</div>
 </template>
 <script setup>
 import { onMounted, ref } from "vue";
@@ -30,34 +32,37 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const current_chosen = ref(0);
 
-
 onMounted(() => {
   // 模拟点击，从而绕过音乐播放限制
   document.getElementById("use_btn").click();
   const item_list = Array.from(document.getElementsByClassName("item"));
-  item_list.forEach(item => {
-    item.addEventListener('mouseover', () => {
-      const song = document.getElementById("change_song")
+  item_list.forEach((item) => {
+    item.addEventListener("mouseover", () => {
+      const song = document.getElementById("change_song");
       song.pause();
       song.currentTime = 0;
-      song.play()
+      song.play();
     });
   });
-})
+});
 
-function on_item_click(index){
+function on_item_click(index) {
   current_chosen.value = index;
-  router.push('/P'+index)
+  router.push("/P" + index);
+}
+
+function to_maomao() {
+  router.push("/maoP" + current_chosen.value);
 }
 </script>
 <style scoped>
-.outer{
-  padding-right:  3px;
+.outer {
+  padding-right: 3px;
   transform: translateX(-99%);
   transition: 0.2s ease-in-out;
   position: relative;
 }
-.outer:hover{
+.outer:hover {
   transform: translateX(0);
 }
 .container {
@@ -68,7 +73,6 @@ function on_item_click(index){
   justify-content: space-around;
   background-color: beige;
 }
-
 
 .title {
   display: flex;
@@ -84,7 +88,6 @@ function on_item_click(index){
   height: 1px;
   width: 80%;
   border-top: 1px solid #756f6f;
-
 }
 
 .content {
@@ -95,7 +98,7 @@ function on_item_click(index){
   flex-direction: column;
   align-items: center;
   margin: 20px 0;
-  padding:20px 0px 20px 6px;
+  padding: 20px 0px 20px 6px;
 }
 
 .content::-webkit-scrollbar {
