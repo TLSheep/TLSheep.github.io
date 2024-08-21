@@ -10,4 +10,4 @@ const onlyRedirectOnce = () => {
   }
 };
 
-onlyRedirectOnce();
+//onlyRedirectOnce();
