@@ -4,7 +4,7 @@
       :id="item.id_name"
       v-for="(item, index) in audios_list"
       :key="index"
-      :src="base_url+item.src"
+      :src="base_url + item.src"
     ></audio>
     <div class="buttons">
       <button
@@ -20,7 +20,7 @@
 </template>
 <script setup>
 import { ref } from "vue";
-const base_url=ref('audios/')
+const base_url = ref("audios/");
 const audios_list = ref([
   {
     id: 0,
@@ -175,22 +175,24 @@ function stopSongs() {
 * {
   box-sizing: border-box;
 }
+
 .container {
-    padding: 0 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #A164DF;
-    min-height: 100vh;
-    width: 100%;
-  
+  padding: 0 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a164df;
+  min-height: 100vh;
+  width: 100%;
 }
+
 .buttons {
-	display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
+
 .btn {
   background-color: rebeccapurple;
   border-radius: 5px;
@@ -206,5 +208,4 @@ function stopSongs() {
 .btn:hover {
   opacity: 0.9;
 }
-
 </style>

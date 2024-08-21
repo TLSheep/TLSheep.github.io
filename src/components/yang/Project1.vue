@@ -31,9 +31,16 @@ function on_pic_click(index) {
 
 <style  scoped>
 .pic_model {
+  /* display: flex; */
+  /* flex: 1;
+  justify-content: center;
+  align-items: center; */
     padding: 0 40px;
-  height: 100vh;
-  width: 100vw;
+  /* height: 100vh;
+  width: 100vw; */
+  height: 100%;
+  width:100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
