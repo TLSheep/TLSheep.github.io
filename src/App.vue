@@ -18,7 +18,7 @@ import Navigation from "./components/mao/Navigation.vue";
 }
 
 .app {
-  min-height: 100vh;
+  height: 100vh;
   max-width: 100vw;
   display: flex;
   position: relative;
