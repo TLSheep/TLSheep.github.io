@@ -44,7 +44,7 @@ import Navigation from "./components/mao/Navigation.vue";
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   position: relative;
   overflow: hidden;
 }

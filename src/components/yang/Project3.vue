@@ -75,7 +75,7 @@ const show_nav = ref(false);
   color: #222;
   overflow-x: hidden;
   margin: 0;
-  width: 100vw;
+  width: 100%;
   height: 100%;
 }
 .P3::-webkit-scrollbar {

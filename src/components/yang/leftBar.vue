@@ -21,7 +21,7 @@
       </div>
       <div class="line"></div>
       <div class="bottom_btn">
-        <button @click="to_maomao">MAO'S</button>
+        <button @click="to_home">HOME</button>
       </div>
     </div>
   </div>
@@ -51,8 +51,12 @@ function on_item_click(index) {
   router.push("/P" + index);
 }
 
-function to_maomao() {
-  router.push("/maoP" + current_chosen.value);
+// function to_maomao() {
+//   router.push("/maoP" + current_chosen.value);
+// }
+function to_home() {
+  router.push("/");
+  current_chosen.value = 0;
 }
 </script>
 <style scoped>

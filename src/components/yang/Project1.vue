@@ -15,7 +15,6 @@
 
 <script setup>
 import { ref } from "vue";
-
 let current = ref(0);
 const base_url = "imgs/";
 let pic_data = ref(["1.png", "2.png", "8.jpg", "3.jpg", "6.png"]);
@@ -30,7 +29,6 @@ function on_pic_click(index) {
   padding: 0 40px;
   height: 100%;
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;

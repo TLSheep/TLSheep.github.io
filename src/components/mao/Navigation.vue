@@ -10,8 +10,20 @@
       </div>
       <div class="menu">
         <div class="menu-group">
-          <div class="menu-item">mao</div>
-          <div class="menu-item">lan</div>
+          <div
+            class="menu-item"
+            :class="{ chonsen_type: belong_type === 1 }"
+            @click="to_mao"
+          >
+            mao
+          </div>
+          <div
+            class="menu-item"
+            :class="{ chonsen_type: belong_type === 2 }"
+            @click="to_lan"
+          >
+            lan
+          </div>
         </div>
         <div class="link">
           <div class="link-item">
@@ -26,10 +38,37 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 import Logo from "./icons/logo.vue";
 import GitHub from "./icons/GitHub.vue";
-</script>
 
+const belong_type = ref(2);
+const router = useRouter();
+function to_mao() {
+  if (belong_type.value === 1) return;
+
+  belong_type.value = 1;
+  let num = get_url_number();
+  console.log(num);
+  if (num > 0) router.push("/maoP" + num);
+}
+function to_lan() {
+  if (belong_type.value === 2) return;
+
+  belong_type.value = 2;
+  let num = get_url_number();
+  console.log(num);
+  if (num > 0) router.push("/P" + num);
+}
+
+function get_url_number() {
+  let url = window.location.href;
+  url = url.slice(url.lastIndexOf("/"));
+  if (url.length < 2) return -1;
+  return url.slice(url.lastIndexOf("P") + 1);
+}
+</script>
 <style scoped>
 .nav {
   top: 0;
@@ -88,6 +127,10 @@ import GitHub from "./icons/GitHub.vue";
 }
 
 .menu-item:hover {
+  color: #ff6384;
+}
+
+.chonsen_type {
   color: #ff6384;
 }
 </style>

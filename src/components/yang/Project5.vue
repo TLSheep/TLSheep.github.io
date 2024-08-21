@@ -39,6 +39,7 @@ countDown();
 <style scoped>
 .container {
   height: calc(100vh - var(--homepage-top-bar-height));
+  /* height: 100%; */
   width: 100vw;
   overflow: hidden;
   position: relative;
@@ -49,12 +50,13 @@ countDown();
 .pic {
   position: relative;
   /* max-height: 150vh;
-    max-width: 150vw;
-    min-height: 100%; */
-  /* min-width: 100%; */
+  max-width: 150vw;
+  min-height: 100%; */
+  /* min-width: 100%;
   top: 0;
   left: 0;
   object-fit: fill;
+  /* max-height: 100%; */
 }
 .mask {
   position: absolute;
