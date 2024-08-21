@@ -6,6 +6,15 @@ const routers= createRouter({
   history: createWebHashHistory(), // 使用HTML5 History模式，可以去掉URL中的#,
   routes: [
     {
+      name: "404",
+      path: "/404",
+      component: () => import("../components/empty.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/404",
+    },
+    {
       name: "home",
       path: "/",
       component: () => import("../pages/homePage.vue"),
@@ -58,19 +67,28 @@ const routers= createRouter({
       component: () => import("../components/Project9.vue"),
     },
     {
-      name: "P4",
-      path: "/P4",
-      component: () => import("../components/Project4.vue"),
-    },
-    {
-      name: "404",
-      path: "/404",
-      component: () => import("../components/empty.vue"),
-    },
-    {
-      path: "/:pathMatch(.*)*",
+      name: "P10",
+      path: "/P10",
       redirect: "/404",
+      component: () => import("../components/Project10.vue"),
     },
+    {
+      name: "P11",
+      path: "/P11",
+      redirect: "/404",
+      component: () => import("../components/Project11.vue"),
+    },
+    {
+      name: "P10",
+      path: "/P",
+      component: () => import("../components/Project10.vue"),
+    },
+    {
+      name: "P10",
+      path: "/P",
+      component: () => import("../components/Project10.vue"),
+    },
+
     
   ],
 });

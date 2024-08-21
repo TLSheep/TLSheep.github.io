@@ -120,6 +120,7 @@ function on_item_click(index){
   border: 1px solid #333;
   transition: all 0.4s ease-in-out;
   margin-bottom: -1px;
+  user-select: none;
 }
 
 .item:hover {
