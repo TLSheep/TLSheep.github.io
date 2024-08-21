@@ -38,7 +38,8 @@ countDown();
 </script>
 <style scoped>
 .container {
-  height: calc(100vh - var(--homepage-top-bar-height));
+  /* height: calc(100vh - var(--homepage-top-bar-height)); */
+  height: 100%;
   width: 100vw;
   overflow: hidden;
   position: relative;

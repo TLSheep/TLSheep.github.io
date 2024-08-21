@@ -1,4 +1,4 @@
-<template >
+<template>
   <div class="P3">
     <div class="container" :class="{ show_nav: show_nav }">
       <div class="circle_container">
