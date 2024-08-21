@@ -2,8 +2,10 @@
   <!-- <div>
   </div> -->
   <div class="app" style="background-color: #fff">
+    <Navigation></Navigation>
     <leftBar class="leftBar"></leftBar>
-    <router-view></router-view>
+    <div class="main"><router-view></router-view></div>
+
     <!-- <homePage></homePage> -->
     <!-- <Mm></Mm> -->
     <!-- <P9></P9> -->
@@ -26,18 +28,8 @@
   </div>
 </template>
 <script setup>
-import homePage from "./pages/homePage.vue";
 import leftBar from "./components/leftBar.vue";
-import P1 from "./components/Project1.vue";
-import P2 from "./components/Project2.vue";
-import P3 from "./components/Project3.vue";
-import P4 from "./components/Project4.vue";
-import P5 from "./components/Project5.vue";
-import P6 from "./components/Project6.vue";
-import P7 from "./components/Project7.vue";
-import P8 from "./components/Project8.vue";
-import P9 from "./components/Project9.vue";
-import Mm from "./components/Mm7.vue";
+import Navigation from "./components/mao/Navigation.vue";
 </script>
 
 <style scoped>
@@ -55,10 +47,17 @@ import Mm from "./components/Mm7.vue";
   overflow: hidden;
 }
 .leftBar {
-	position: absolute;
-  top:0;
+  position: absolute;
+  top: 0;
   left: 0;
   z-index: 999;
 }
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 占满剩下空间 */
+  flex: 1;
+  margin-top: 48px;
+}
 </style>
-
