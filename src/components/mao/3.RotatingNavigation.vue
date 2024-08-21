@@ -44,7 +44,6 @@
 import { ref } from "vue";
 import Close from "./icons/close.vue";
 import Menu from "./icons/menu.vue";
-import Menu from "./icons/menu.vue";
 
 const active = ref(false);
 
