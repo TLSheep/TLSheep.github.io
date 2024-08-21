@@ -1,1 +1,0 @@
-import{_ as e,c,o as t}from"./index-DvWrdIu_.js";const o={},a={class:"container"};function s(n,_){return t(),c("div",a," 写到这了么你这就kuku一顿点啊 ")}const d=e(o,[["render",s],["__scopeId","data-v-6a7a8810"]]);export{d as default};
