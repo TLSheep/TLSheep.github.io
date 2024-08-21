@@ -14,8 +14,8 @@
 </template>
 
 <script setup>
-import image1 from "../../../public/mao/imgs/2.jpg";
-import image2 from "../../../public/mao/imgs/3.jpg";
+import image1 from "../../assets/mao/imgs/2.jpg";
+import image2 from "../../assets/mao/imgs/3.jpg";
 </script>
 
 <style scoped>

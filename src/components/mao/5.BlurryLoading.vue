@@ -8,7 +8,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import { onMounted } from "vue";
-import image from "../../../public/mao/imgs/3.jpg";
+import image from "../../assets/mao/imgs/3.jpg";
 const load = ref(0);
 
 onMounted(() => {

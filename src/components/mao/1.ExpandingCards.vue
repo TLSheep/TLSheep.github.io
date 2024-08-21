@@ -13,15 +13,14 @@
 
 <script setup>
 import { ref } from "vue";
-import imgae1 from "../../../public/mao/imgs/1.jpg";
-
+import imgae1 from "../../assets/mao/imgs/1.jpg";
+import imgae2 from "../../assets/mao/imgs/2.jpg";
+import imgae3 from "../../assets/mao/imgs/3.jpg";
 const props = defineProps({
   images: {
     type: Array,
-    require: true,
-    default: () => {
-      [imgae1];
-    },
+    required: false,
+    default: () => [imgae1, imgae2, imgae3],
   },
 });
 
