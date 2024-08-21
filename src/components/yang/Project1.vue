@@ -1,12 +1,12 @@
 <template>
   <div class="pic_model">
     <div
-        class="pic_out"
-        :class="current === index ? 'large_m' : 'small_m'"
-        v-for="(item, index) in pic_data"
-        :key="index"
-        :style="{backgroundImage:`url(${base_url+item})`}"
-        @click="on_pic_click(index)"
+      class="pic_out"
+      :class="current === index ? 'large_m' : 'small_m'"
+      v-for="(item, index) in pic_data"
+      :key="index"
+      :style="{ backgroundImage: `url(${base_url + item})` }"
+      @click="on_pic_click(index)"
     >
       <!-- <img class="pic" :class="current===index?'pic_l':'pic_s'" :src="base_url+item" @click="on_pic_click(index)">      -->
     </div>
@@ -18,11 +18,7 @@ import { ref } from "vue";
 
 let current = ref(0);
 const base_url = "imgs/";
-let pic_data = ref(["1.png", 
-                    "2.png", 
-                    "8.jpg", 
-                    "3.jpg", 
-                    "6.png"]);
+let pic_data = ref(["1.png", "2.png", "8.jpg", "3.jpg", "6.png"]);
 function on_pic_click(index) {
   current.value = index;
   console.log(index);
@@ -31,15 +27,9 @@ function on_pic_click(index) {
 
 <style  scoped>
 .pic_model {
-  /* display: flex; */
-  /* flex: 1;
-  justify-content: center;
-  align-items: center; */
-    padding: 0 40px;
-  /* height: 100vh;
-  width: 100vw; */
+  padding: 0 40px;
   height: 100%;
-  width:100%;
+  width: 100%;
 
   display: flex;
   justify-content: center;
@@ -47,7 +37,7 @@ function on_pic_click(index) {
 }
 
 .pic_out {
-  cursor: pointer;    
+  cursor: pointer;
   margin: 0 10px;
   height: 80vh;
   min-width: 60px;

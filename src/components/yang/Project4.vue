@@ -16,14 +16,11 @@ import { ref } from "vue";
 const show_inp = ref(false);
 </script>
 <style scoped>
-* {
-  box-sizing: border-box;
-}
-
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* height: calc(100vh - var(--homepage-top-bar-height)); */
   height: 100%;
   width: 100vw;
   background-color: #775bf1;

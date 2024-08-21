@@ -37,13 +37,9 @@ function countDown() {
 countDown();
 </script>
 <style scoped>
-* {
-  box-sizing: border-box;
-}
 .container {
-  max-height: 100%;
-  max-width: 100vw;
-
+  height: calc(100vh - var(--homepage-top-bar-height));
+  width: 100vw;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -52,7 +48,10 @@ countDown();
 }
 .pic {
   position: relative;
-
+  /* max-height: 150vh;
+    max-width: 150vw;
+    min-height: 100%; */
+  /* min-width: 100%; */
   top: 0;
   left: 0;
   object-fit: fill;
@@ -63,7 +62,7 @@ countDown();
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 1;
+  z-index: 0;
 }
 
 .count_down {

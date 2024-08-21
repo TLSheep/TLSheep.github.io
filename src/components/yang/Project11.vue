@@ -35,7 +35,8 @@ onUnmounted(() => {
 </script>
 <style scoped>
 .container {
-  height: 100vh;
+  /* height: 100vh; */
+  height: calc(100vh - var(--homepage-top-bar-height));
   width: 100%;
   display: flex;
   justify-content: center;

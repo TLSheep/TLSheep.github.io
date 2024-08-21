@@ -172,17 +172,14 @@ function stopSongs() {
 }
 </script>
 <style scoped>
-* {
-  box-sizing: border-box;
-}
-
 .container {
   padding: 0 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #a164df;
-  min-height: 100vh;
+  /* height: 100%; */
+  height: calc(100vh - var(--homepage-top-bar-height));
   width: 100%;
 }
 

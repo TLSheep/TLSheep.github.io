@@ -45,7 +45,8 @@ const input_set = ref([
 }
 
 .container {
-  height: 100vh;
+  /* height: 100%; */
+  height: calc(100vh - var(--homepage-top-bar-height));
   width: 100vw;
   background-color: #4682b4;
 

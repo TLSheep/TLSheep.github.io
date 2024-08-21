@@ -24,7 +24,8 @@
 }
 .container {
   display: flex;
-  height: 100%;
+  height: calc(100vh - var(--homepage-top-bar-height));
+  /* height: 100%; */
   min-width: 100vw;
 }
 

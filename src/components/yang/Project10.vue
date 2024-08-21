@@ -28,7 +28,8 @@ onMounted(() => {
 </script>
 <style scoped>
 .container {
-  height: 100vh;
+  /* height: 100vh; */
+  height: calc(100vh - var(--homepage-top-bar-height));
   width: 100vw;
   display: flex;
   justify-content: center;

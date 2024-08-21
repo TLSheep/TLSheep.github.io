@@ -61,7 +61,7 @@ const routers = createRouter({
     {
       name: "P9",
       path: "/P9",
-      redirect: "/404",
+      // redirect: "/404",
       component: () => import("../components/yang/Project9.vue"),
     },
     {
@@ -73,16 +73,16 @@ const routers = createRouter({
     {
       name: "P11",
       path: "/P11",
-      // redirect: "/404",
+      redirect: "/404",
       component: () => import("../components/yang/Project11.vue"),
     },
     {
-      name: "P10",
+      name: "P",
       path: "/P",
       component: () => import("../components/yang/Project10.vue"),
     },
     {
-      name: "P10",
+      name: "P",
       path: "/P",
       component: () => import("../components/yang/Project10.vue"),
     },

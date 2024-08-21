@@ -5,7 +5,7 @@
     <Navigation class="top_bar"></Navigation>
     <leftBar class="leftBar"></leftBar>
     <div class="main">
-      <router-view></router-view>
+      <router-view class="router_view"></router-view>
     </div>
     <!-- <homePage></homePage> -->
     <!-- <Mm></Mm> -->
@@ -46,7 +46,7 @@ import Navigation from "./components/mao/Navigation.vue";
   justify-content: center;
   align-items: center;
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .leftBar {
@@ -62,10 +62,14 @@ import Navigation from "./components/mao/Navigation.vue";
   align-items: center;
   /* 占满剩下空间 */
   flex-grow: 1;
-  margin-top: 48px;
+  margin-top: 56px;
+  min-height: calc(100vh - var(--homepage-top-bar-height));
 }
 
 .top_bar {
   /* position: absolute; */
+}
+.router_view {
+  /* max-height: calc(100vh - var(--homepage-top-bar-height)); */
 }
 </style>

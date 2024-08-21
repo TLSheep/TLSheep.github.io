@@ -69,10 +69,6 @@ const show_nav = ref(false);
 </script>
 
 <style scoped>
-* {
-  box-sizing: border-box;
-}
-
 .P3 {
   font-family: "Lato", sans-serif;
   background-color: #333;
