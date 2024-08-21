@@ -1,0 +1,1 @@
+import{_ as e,c,o}from"./index-NaYvFPzL.js";const t={},a={class:"container"};function s(n,_){return o(),c("div",a," 这里是主页 ")}const d=e(t,[["render",s],["__scopeId","data-v-a6904c67"]]);export{d as default};

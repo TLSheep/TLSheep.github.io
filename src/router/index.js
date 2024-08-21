@@ -1,8 +1,6 @@
-import { createRouter,createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
-
-
-const routers= createRouter({
+const routers = createRouter({
   history: createWebHashHistory(), // 使用HTML5 History模式，可以去掉URL中的#,
   routes: [
     {
@@ -13,12 +11,12 @@ const routers= createRouter({
     {
       name: "P1",
       path: "/P1",
-      component:()=>import("../components/Project1.vue"),
+      component: () => import("../components/Project1.vue"),
     },
     {
       name: "P2",
       path: "/P2",
-      component: ()=> import("../components/Project2.vue"),
+      component: () => import("../components/Project2.vue"),
     },
     {
       name: "P3",
@@ -71,7 +69,6 @@ const routers= createRouter({
       path: "/:pathMatch(.*)*",
       redirect: "/404",
     },
-    
   ],
 });
 
