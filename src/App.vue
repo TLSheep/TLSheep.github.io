@@ -1,11 +1,9 @@
 <template>
-  <!-- <div>
-  </div> -->
-  <div class="app" style="background-color: #fff">
-    <Navigation class="top_bar"></Navigation>
-    <leftBar class="leftBar"></leftBar>
+  <div class="app">
+    <div><Navigation></Navigation></div>
+    <div><leftBar class="leftBar"></leftBar></div>
     <div class="main">
-      <router-view class="router_view"></router-view>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -23,11 +21,9 @@ import Navigation from "./components/mao/Navigation.vue";
   min-height: 100vh;
   max-width: 100vw;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   position: relative;
   overflow: hidden;
+  background-color: #fff;
 }
 
 .leftBar {
@@ -42,15 +38,8 @@ import Navigation from "./components/mao/Navigation.vue";
   justify-content: center;
   align-items: center;
   /* 占满剩下空间 */
-  flex-grow: 1;
+  flex: 1;
   margin-top: 56px;
-  min-height: calc(100vh - var(--homepage-top-bar-height));
-}
-
-.top_bar {
-  /* position: absolute; */
-}
-.router_view {
-  /* max-height: calc(100vh - var(--homepage-top-bar-height)); */
+  /* min-height: calc(100vh - var(--homepage-top-bar-height)); */
 }
 </style>
