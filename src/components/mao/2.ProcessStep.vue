@@ -59,6 +59,7 @@ const next = () => {
   justify-content: center;
   border: 3px solid #383838;
   transition: 0.4s ease;
+  z-index: 2;
 }
 
 .circle.active {
@@ -67,7 +68,7 @@ const next = () => {
 }
 
 .progress-container {
-  width: 350px;
+  width: 100%;
   display: flex;
   margin-bottom: 30px;
   justify-content: space-between;
@@ -83,7 +84,7 @@ const next = () => {
   left: 0;
   height: 4px;
   width: 100%;
-  z-index: -1;
+  z-index: 1;
   /* 确保居中 */
   transform: translateY(-50%);
 }
@@ -97,7 +98,7 @@ const next = () => {
   transform: translateY(-50%);
   height: 4px;
   width: 0%;
-  z-index: -1;
+  z-index: 1;
   transition: 0.4s ease;
 }
 
@@ -122,7 +123,7 @@ const next = () => {
 
 .container {
   height: 100%;
-  widows: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="container">
+  <div class="container">
+    <div class="image-container">
       <div class="left" :style="{ backgroundImage: `url(${image1})` }">
         <h1>我 是</h1>
         <div class="btn">mao</div>
@@ -30,8 +30,12 @@ h1 {
 .container {
   width: 100%;
   height: 100%;
+}
+
+.image-container {
   overflow: hidden;
   position: relative;
+  display: flex;
 }
 
 .left {
