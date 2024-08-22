@@ -72,7 +72,7 @@ function to_lan() {
 
 function to_home() {
   router.push("/");
-  tab_card_status.current_index = 0;
+  tab_card_status.current_index = -1;
 }
 </script>
 <style scoped>
