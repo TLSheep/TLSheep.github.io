@@ -55,7 +55,7 @@ function to_mao() {
   if (tab_card_status.current_index === -1) {
     router.push("/");
   } else {
-    router.push(maoRouter[tab_card_status.current_index].path);
+    router.push(maoRouter[tab_card_status.current_index]?.path ?? "/404");
   }
 }
 function to_lan() {
@@ -66,7 +66,7 @@ function to_lan() {
   if (tab_card_status.current_index === -1) {
     router.push("/");
   } else {
-    router.push(lanRouter[tab_card_status.current_index].path);
+    router.push(lanRouter[tab_card_status.current_index]?.path ?? "/404");
   }
 }
 
