@@ -1,13 +1,15 @@
 <template>
-  <div class="container" ref="container">
-    <h1>吊 特 么 吊 炸 了</h1>
-    <div
-      class="box"
-      :class="{ show: contentShow[index] }"
-      :key="index"
-      v-for="(content, index) in contents"
-    >
-      <h2>{{ content }}</h2>
+  <div class="container" @scroll="checkBoxes">
+    <div class="box-container" ref="container">
+      <h1>吊 特 么 吊 炸 了</h1>
+      <div
+        class="box"
+        :class="{ show: contentShow[index] }"
+        :key="index"
+        v-for="(content, index) in contents"
+      >
+        <h2>{{ content }}</h2>
+      </div>
     </div>
   </div>
 </template>
@@ -36,7 +38,7 @@ onMounted(() => {
   boxes = container.value.querySelectorAll(".box");
   checkBoxes(boxes);
 });
-window.addEventListener("scroll", checkBoxes);
+//window.addEventListener("scroll", checkBoxes);
 </script>
 
 <style scoped>
@@ -44,10 +46,14 @@ h2 {
   font-size: 45px;
 }
 .container {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+.box-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-x: hidden;
 }
 .box {
   width: 400px;
