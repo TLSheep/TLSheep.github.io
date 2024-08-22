@@ -34,7 +34,17 @@ import { tab_card_status } from "../util";
 import lanRouter from "../../router/lanRouter";
 import maoRouter from "../../router/maoRouter";
 const router = useRouter();
-const title = ref("主页");
+const title = computed(() => {
+  let current = tab_card_status.current_index;
+  console.log("current:" + current);
+  let type = tab_card_status.value;
+  if (current === -1) return "主页";
+  else if (type === 1 && current < maoRouter.length)
+    return maoRouter[current].name;
+  else if (type === 2 && current < lanRouter.length)
+    return lanRouter[current].name;
+  else return "S 404 G";
+});
 const show_router = computed(() => {
   return tab_card_status.value === 1 ? maoRouter : lanRouter;
 });
@@ -53,8 +63,9 @@ function play_song() {
 function on_item_click(index, router_item) {
   router.push(router_item.path);
 
+  // console.log("index:" + index);
   tab_card_status.current_index = index;
-  console.log(index);
+
   title.value = router_item.name;
 }
 function to_home() {
@@ -88,7 +99,7 @@ function to_home() {
   align-items: center;
   height: 120px;
   width: 280px;
-  font-size: 32px;
+  font-size: 24px;
   padding: 20px 12px;
 }
 

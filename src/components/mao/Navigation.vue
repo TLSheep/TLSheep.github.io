@@ -43,7 +43,8 @@ import { useRouter } from "vue-router";
 import { tab_card_status } from "../util";
 import Logo from "./icons/logo.vue";
 import GitHub from "./icons/GitHub.vue";
-
+import lanRouter from "../../router/lanRouter";
+import maoRouter from "../../router/maoRouter";
 const belong_type = ref(tab_card_status.value);
 const router = useRouter();
 function to_mao() {
@@ -51,10 +52,10 @@ function to_mao() {
 
   belong_type.value = 1;
   tab_card_status.value = 1;
-  if (tab_card_status.current_index === 0) {
+  if (tab_card_status.current_index === -1) {
     router.push("/");
   } else {
-    router.push("/maoP" + tab_card_status.current_index);
+    router.push(maoRouter[tab_card_status.current_index].path);
   }
 }
 function to_lan() {
@@ -62,10 +63,10 @@ function to_lan() {
 
   belong_type.value = 2;
   tab_card_status.value = 2;
-  if (tab_card_status.current_index === 0) {
+  if (tab_card_status.current_index === -1) {
     router.push("/");
   } else {
-    router.push("/P" + tab_card_status.current_index);
+    router.push(lanRouter[tab_card_status.current_index].path);
   }
 }
 
