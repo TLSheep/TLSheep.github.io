@@ -5,22 +5,19 @@
     </button>
     <div class="container">
       <div class="title">
-        {{
-          tab_card_status.current_index === 0
-            ? "主页"
-            : "Project " + tab_card_status.current_index
-        }}
+        {{ title }}
       </div>
       <div class="line"></div>
       <div class="content">
         <div
           class="item"
           :class="{ chosen_item: tab_card_status.current_index === index }"
-          @click="on_item_click(index)"
-          v-for="index in 50"
+          @click="on_item_click(index, item)"
+          @mouseover="play_song()"
+          v-for="(item, index) in show_router"
           :key="index"
         >
-          {{ "Project " + index }}
+          {{ item.name }}
         </div>
       </div>
       <div class="line"></div>
@@ -31,37 +28,39 @@
   </div>
 </template>
 <script setup>
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { tab_card_status } from "../util";
+import lanRouter from "../../router/lanRouter";
+import maoRouter from "../../router/maoRouter";
 const router = useRouter();
+const title = ref("主页");
+const show_router = computed(() => {
+  return tab_card_status.value === 1 ? maoRouter : lanRouter;
+});
 
 onMounted(() => {
   // 模拟点击，从而绕过音乐播放限制
   document.getElementById("use_btn").click();
-  const item_list = Array.from(document.getElementsByClassName("item"));
-  item_list.forEach((item) => {
-    item.addEventListener("mouseover", () => {
-      const song = document.getElementById("change_song");
-      song.pause();
-      song.currentTime = 0;
-      song.play();
-    });
-  });
 });
 
-function on_item_click(index) {
-  tab_card_status.current_index = index;
-  if (tab_card_status.value === 1) router.push("/maoP" + index);
-  else if (tab_card_status.value === 2) router.push("/P" + index);
+function play_song() {
+  const song = document.getElementById("change_song");
+  song.pause();
+  song.currentTime = 0;
+  song.play();
 }
+function on_item_click(index, router_item) {
+  router.push(router_item.path);
 
-// function to_maomao() {
-//   router.push("/maoP" + current_chosen.value);
-// }
+  tab_card_status.current_index = index;
+  console.log(index);
+  title.value = router_item.name;
+}
 function to_home() {
   router.push("/");
-  tab_card_status.current_index = 0;
+  tab_card_status.current_index = -1;
+  title.value = "主页";
 }
 </script>
 <style scoped>

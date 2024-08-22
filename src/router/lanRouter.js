@@ -4,7 +4,6 @@ const router = [
     path: "/P1",
     component: () => import("../components/yang/Project1.vue"),
   },
-  //snlcy
   {
     name: "P2",
     path: "/P2",
