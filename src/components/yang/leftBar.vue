@@ -1,17 +1,21 @@
-<template >
+<template>
   <div class="outer">
     <button id="use_btn" style="position: absolute; z-index: -100">
       <audio id="change_song" src="audios/change_card.mp3"></audio>
     </button>
     <div class="container">
       <div class="title">
-        {{ current_chosen === 0 ? "主页" : "Project " + current_chosen }}
+        {{
+          tab_card_status.current_index === 0
+            ? "主页"
+            : "Project " + tab_card_status.current_index
+        }}
       </div>
       <div class="line"></div>
       <div class="content">
         <div
           class="item"
-          :class="{ chosen_item: current_chosen === index }"
+          :class="{ chosen_item: tab_card_status.current_index === index }"
           @click="on_item_click(index)"
           v-for="index in 50"
           :key="index"
@@ -31,7 +35,6 @@ import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { tab_card_status } from "../util";
 const router = useRouter();
-const current_chosen = ref(0);
 
 onMounted(() => {
   // 模拟点击，从而绕过音乐播放限制
@@ -48,7 +51,6 @@ onMounted(() => {
 });
 
 function on_item_click(index) {
-  current_chosen.value = index;
   tab_card_status.current_index = index;
   if (tab_card_status.value === 1) router.push("/maoP" + index);
   else if (tab_card_status.value === 2) router.push("/P" + index);
@@ -59,8 +61,7 @@ function on_item_click(index) {
 // }
 function to_home() {
   router.push("/");
-  current_chosen.value = 0;
-  tab_card_status.value = -1;
+  tab_card_status.current_index = 0;
 }
 </script>
 <style scoped>

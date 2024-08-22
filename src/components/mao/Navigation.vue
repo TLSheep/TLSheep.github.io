@@ -2,7 +2,7 @@
   <div class="nav">
     <div class="container">
       <div class="logo-container">
-        <div class="logo">
+        <div class="logo" @click="to_home">
           <Logo />
         </div>
 
@@ -51,16 +51,27 @@ function to_mao() {
 
   belong_type.value = 1;
   tab_card_status.value = 1;
-  if (tab_card_status.value !== -1)
+  if (tab_card_status.current_index === 0) {
+    router.push("/");
+  } else {
     router.push("/maoP" + tab_card_status.current_index);
+  }
 }
 function to_lan() {
   if (belong_type.value === 2) return;
 
   belong_type.value = 2;
   tab_card_status.value = 2;
-  if (tab_card_status.value !== -1)
+  if (tab_card_status.current_index === 0) {
+    router.push("/");
+  } else {
     router.push("/P" + tab_card_status.current_index);
+  }
+}
+
+function to_home() {
+  router.push("/");
+  tab_card_status.current_index = 0;
 }
 </script>
 <style scoped>
@@ -85,6 +96,7 @@ function to_lan() {
   margin-left: 24px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .logo {
