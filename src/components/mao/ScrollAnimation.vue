@@ -1,6 +1,6 @@
 <template>
-  <div class="container" @scroll="checkBoxes">
-    <div class="box-container" ref="container">
+  <div class="container">
+    <div class="box-container" ref="container" @scroll="checkBoxes">
       <h1>吊 特 么 吊 炸 了</h1>
       <div
         class="box"
@@ -48,18 +48,18 @@ h2 {
 .container {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
 }
 .box-container {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
+  padding: 20px 0;
 }
 .box {
   width: 400px;
-  height: 200px;
+  min-height: 200px;
   display: flex;
   align-items: center;
   color: #fff;

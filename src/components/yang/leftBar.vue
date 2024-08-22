@@ -14,7 +14,7 @@
           :class="{ chosen_item: tab_card_status.current_index === index }"
           @click="on_item_click(index, item)"
           @mouseover="play_song()"
-          v-for="(item, index) in show_router"
+          v-for="(item, index) in show_router()"
           :key="index"
         >
           {{ item.name }}
@@ -45,9 +45,9 @@ const title = computed(() => {
     return lanRouter[current].name;
   else return "S 404 G";
 });
-const show_router = computed(() => {
+function show_router() {
   return tab_card_status.value === 1 ? maoRouter : lanRouter;
-});
+}
 
 onMounted(() => {
   // 模拟点击，从而绕过音乐播放限制
