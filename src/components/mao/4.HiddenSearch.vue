@@ -1,55 +1,61 @@
 <template>
-  <div class="container" :class="{ active: isActive }">
-    <input class="input" />
-    <button class="btn" @click="handle">
-      <div class="search"><Search></Search></div>
-    </button>
+  <div class="container">
+    <input
+      class="search_input"
+      :class="{ active: show_inp }"
+      placeholder="Search..."
+    />
+    <div
+      class="search iconfont icon-sousuo"
+      @click="show_inp = !show_inp"
+    ></div>
   </div>
 </template>
-
 <script setup>
-import Search from "./icons/search.vue";
 import { ref } from "vue";
-const isActive = ref(false);
-const handle = () => {
-  isActive.value = !isActive.value;
-};
+const show_inp = ref(false);
 </script>
-
 <style scoped>
-* {
-  box-sizing: border-box;
-}
 .container {
-  position: relative;
-  height: 30px;
-  width: 50px;
-  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100vw;
+  background-color: #f15b92;
 }
-.input {
-  outline: none;
-  background-color: aquamarine;
+
+.search_input {
+  background-color: #fff;
   border: 0;
-  font-size: 16px;
-  height: 30px;
-  width: 0px;
+  font-size: 18px;
   padding: 0;
-  transition: width 0.3s ease;
+  height: 50px;
+  width: 0;
+  transition: 0.3s ease;
+}
+.search_input:focus {
+  outline: none;
+}
+.active {
+  width: 200px;
+  padding: 15px;
 }
 .search {
-  height: 20px;
-  margin-top: 5px;
-  cursor: pointer;
-}
-.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
   background-color: #fff;
-  width: 50px;
   border: 0;
-  height: 30px;
+  cursor: pointer;
+  font-size: 24px;
+  height: 50px;
+  width: 50px;
   transition: transform 0.3s ease;
 }
-.container.active .input {
-  width: 150px;
-  padding: 0 10px;
+
+.search_box {
+  overflow: hidden;
 }
 </style>
