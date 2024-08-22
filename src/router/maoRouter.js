@@ -1,58 +1,70 @@
+import ExpandingCards from "../components/mao/ExpandingCards.vue";
+import ProcessStep from "../components/mao/ProcessStep.vue";
+import RotatingNavigation from "../components/mao/RotatingNavigation.vue";
+import HiddenSearch from "../components/mao/HiddenSearch.vue";
+import BlurryLoading from "../components/mao/BlurryLoading.vue";
+import ScrollAnimation from "../components/mao/ScrollAnimation.vue";
+import SplitLandingPage from "../components/mao/SplitLandingPage.vue";
+import FormWave from "../components/mao/FormWave.vue";
+import SoundBoard from "../components/mao/SoundBoard.vue";
+import Jokes from "../components/mao/Jokes.vue";
+import EventKeyCode from "../components/mao/EventKeyCode.vue";
+
 const router = [
   {
     name: "ExpandingCards",
     path: "/maoP1",
-    component: () => import("../components/mao/ExpandingCards.vue"),
+    component: ExpandingCards,
   },
   {
     name: "ProcessStep",
     path: "/maoP2",
-    component: () => import("../components/mao/ProcessStep.vue"),
+    component: ProcessStep,
   },
   {
     name: "RotatingNavigation",
     path: "/maoP3",
-    component: () => import("../components/mao/RotatingNavigation.vue"),
+    component: RotatingNavigation,
   },
   {
     name: "HiddenSearch",
     path: "/maoP4",
-    component: () => import("../components/mao/HiddenSearch.vue"),
+    component: HiddenSearch,
   },
   {
     name: "BlurryLoading",
     path: "/maoP5",
-    component: () => import("../components/mao/BlurryLoading.vue"),
+    component: BlurryLoading,
   },
   {
     name: "ScrollAnimation",
     path: "/maoP6",
-    component: () => import("../components/mao/ScrollAnimation.vue"),
+    component: ScrollAnimation,
   },
   {
     name: "SplitLandingPage",
     path: "/maoP7",
-    component: () => import("../components/mao/SplitLandingPage.vue"),
+    component: SplitLandingPage,
   },
   {
     name: "FormWave",
     path: "/maoP8",
-    component: () => import("../components/mao/FormWave.vue"),
+    component: FormWave,
   },
   {
     name: "SoundBoard",
     path: "/maoP9",
-    component: () => import("../components/mao/SoundBoard.vue"),
+    component: SoundBoard,
   },
   {
     name: "Jokes",
     path: "/maoP10",
-    component: () => import("../components/mao/Jokes.vue"),
+    component: Jokes,
   },
   {
     name: "EventKeyCode",
     path: "/maoP11",
-    component: () => import("../components/mao/EventKeyCode.vue"),
+    component: EventKeyCode,
   },
 ];
 
