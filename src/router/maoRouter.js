@@ -49,6 +49,11 @@ const router = [
     path: "/maoP10",
     component: () => import("../components/mao/Jokes.vue"),
   },
+  {
+    name: "EventKeyCode",
+    path: "/maoP11",
+    component: () => import("../components/mao/EventKeyCode.vue"),
+  },
 ];
 
 export default router;

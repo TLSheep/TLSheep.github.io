@@ -1,1 +1,0 @@
-import{_ as e,c,o}from"./index-6tg_wW2z.js";const t={},s={class:"container"};function a(n,_){return o(),c("div",s,"这里是主页")}const d=e(t,[["render",a],["__scopeId","data-v-b5c2b5f2"]]);export{d as default};
