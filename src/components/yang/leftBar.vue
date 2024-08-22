@@ -60,6 +60,7 @@ function on_item_click(index) {
 function to_home() {
   router.push("/");
   current_chosen.value = 0;
+  tab_card_status.value = -1;
 }
 </script>
 <style scoped>

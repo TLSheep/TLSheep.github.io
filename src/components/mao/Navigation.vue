@@ -51,14 +51,16 @@ function to_mao() {
 
   belong_type.value = 1;
   tab_card_status.value = 1;
-  router.push("/maoP" + tab_card_status.current_index);
+  if (tab_card_status.value !== -1)
+    router.push("/maoP" + tab_card_status.current_index);
 }
 function to_lan() {
   if (belong_type.value === 2) return;
 
   belong_type.value = 2;
   tab_card_status.value = 2;
-  router.push("/P" + tab_card_status.current_index);
+  if (tab_card_status.value !== -1)
+    router.push("/P" + tab_card_status.current_index);
 }
 </script>
 <style scoped>
