@@ -1,6 +1,6 @@
 <template>
-  <div class="container" @scroll="checkBoxes">
-    <div class="box_container" ref="box_container">
+  <div class="container">
+    <div class="box_container" ref="box_container" @scroll="checkBoxes">
       <div class="box" v-for="i in 20" :key="i">
         {{ i }}
       </div>
@@ -12,8 +12,6 @@ import { ref, onMounted } from "vue";
 
 const box_container = ref(null);
 let item_list = [];
-
-window.addEventListener("scroll", checkBoxes);
 
 function checkBoxes(boxes) {
   const triggerBottom = (window.innerHeight / 5) * 4;
@@ -37,27 +35,30 @@ onMounted(() => {
 </script>
 <style scoped>
 .container {
-  margin: 0;
-  overflow-x: hidden;
+  /* margin: 0; */
+
   width: 100%;
-  font-size: 30px;
+  /* font-size: 30px; */
   height: 100%;
 }
 .box_container {
   display: flex;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  overflow-x: hidden;
 }
 
-.box_container > div {
+.box {
+  font-size: 32px;
   background-color: steelblue;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 400px;
-  height: 200px;
+  min-height: 200px;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 2px 4px 5px rgb(0 0 0 / 30%);
@@ -65,7 +66,7 @@ onMounted(() => {
   transition: transform 0.4s ease;
 }
 
-.box_container > div:nth-child(2n + 1) {
+.box:nth-child(2n + 1) {
   transform: translateX(-400%);
   background-color: rgb(255, 0, 0);
 }

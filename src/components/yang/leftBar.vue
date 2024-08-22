@@ -14,7 +14,7 @@
           :class="{ chosen_item: tab_card_status.current_index === index }"
           @click="on_item_click(index, item)"
           @mouseover="play_song()"
-          v-for="(item, index) in show_router"
+          v-for="(item, index) in show_router()"
           :key="index"
         >
           {{ item.name }}
@@ -22,7 +22,7 @@
       </div>
       <div class="line"></div>
       <div class="bottom_btn">
-        <button @click="to_home">HOME</button>
+        <button @click="to_home">BARK</button>
       </div>
     </div>
   </div>
@@ -33,6 +33,8 @@ import { useRouter } from "vue-router";
 import { tab_card_status } from "../util";
 import lanRouter from "../../router/lanRouter";
 import maoRouter from "../../router/maoRouter";
+const audio = new Audio();
+
 const router = useRouter();
 const title = computed(() => {
   let current = tab_card_status.current_index;
@@ -45,15 +47,16 @@ const title = computed(() => {
     return lanRouter[current].name;
   else return "S 404 G";
 });
-const show_router = computed(() => {
+function show_router() {
   return tab_card_status.value === 1 ? maoRouter : lanRouter;
-});
+}
 
 onMounted(() => {
   // 模拟点击，从而绕过音乐播放限制
   document.getElementById("use_btn").click();
 });
 
+audio.src = "audios/likeDog.mp3";
 function play_song() {
   const song = document.getElementById("change_song");
   song.pause();
@@ -69,9 +72,12 @@ function on_item_click(index, router_item) {
   title.value = router_item.name;
 }
 function to_home() {
-  router.push("/");
-  tab_card_status.current_index = -1;
-  title.value = "主页";
+  // router.push("/");
+  // tab_card_status.current_index = -1;
+  // title.value = "主页";
+  audio.pause();
+  audio.currentTime = 0;
+  audio.play();
 }
 </script>
 <style scoped>
