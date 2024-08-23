@@ -17,10 +17,10 @@
           :style="{ 'background-image': 'url(' + weixin + ')' }"
         ></div>
       </div>
-      <div class="icon" @click="change(index)">
-        <div v-if="!show[index]"><DownArrow></DownArrow></div>
-        <div v-else><Close></Close></div>
-      </div>
+      <button class="icon" @click="change(index)">
+        <DownArrow v-if="!show[index]"></DownArrow>
+        <Close v-else></Close>
+      </button>
     </div>
   </div>
 </template>
@@ -77,10 +77,12 @@ const change = (index) => {
   border-radius: 10px;
 }
 .icon {
+  border: 0;
+  background-color: transparent;
+  border-radius: 50%;
   cursor: pointer;
-  padding-left: 8px;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   position: relative;
   top: 8px;
 }
