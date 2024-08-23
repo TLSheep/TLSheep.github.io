@@ -148,12 +148,6 @@ const audios_list = ref([
     s_name: "shit!!",
     src: "shit.mp3",
   },
-  {
-    id: 21,
-    id_name: "change",
-    s_name: "change!!",
-    src: "change.mp3",
-  },
 ]);
 let current_song = null;
 
@@ -200,6 +194,9 @@ function stopSongs() {
   font-size: 1.2rem;
   font-family: inherit;
   cursor: pointer;
+}
+.btn:active {
+  transform: scale(0.98);
 }
 
 .btn:hover {

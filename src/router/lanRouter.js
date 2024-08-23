@@ -37,30 +37,57 @@ const router = [
   {
     name: "P8",
     path: "/P8",
-    redirect: "/404",
     component: () => import("../components/yang/Project8.vue"),
   },
   {
     name: "P9",
     path: "/P9",
-    // redirect: "/404",wssn
     component: () => import("../components/yang/Project9.vue"),
   },
   {
     name: "P10",
     path: "/P10",
-    redirect: "/404",
     component: () => import("../components/yang/Project10.vue"),
   },
   {
     name: "P11",
     path: "/P11",
-    redirect: "/404",
     component: () => import("../components/yang/Project11.vue"),
   },
   {
-    name: "P",
-    path: "/P",
+    name: "P12",
+    path: "/P12",
+
+    component: () => import("../components/yang/Project10.vue"),
+  },
+  {
+    name: "P13",
+    path: "/P13",
+    redirect: "/404",
+    component: () => import("../components/yang/Project10.vue"),
+  },
+  {
+    name: "P14",
+    path: "/P14",
+    redirect: "/404",
+    component: () => import("../components/yang/Project10.vue"),
+  },
+  {
+    name: "P15",
+    path: "/P15",
+    redirect: "/404",
+    component: () => import("../components/yang/Project10.vue"),
+  },
+  {
+    name: "P16",
+    path: "/P16",
+    redirect: "/404",
+    component: () => import("../components/yang/Project10.vue"),
+  },
+  {
+    name: "P17",
+    path: "/P17",
+    redirect: "/404",
     component: () => import("../components/yang/Project10.vue"),
   },
 ];

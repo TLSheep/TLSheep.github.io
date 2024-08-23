@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import lanRouter from "./lanRouter";
 import maoRouter from "./maoRouter";
-
+import { tab_card_status } from "../components/util";
 let router = [];
 let baseRouter = [
   {
@@ -16,6 +16,10 @@ let baseRouter = [
   {
     name: "home",
     path: "/",
+    // 返回主页前重置当前页面
+    beforeEnter: (to, from) => {
+      tab_card_status.current_index = -1;
+    },
     component: () => import("../pages/homePage.vue"),
   },
 ];
