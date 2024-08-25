@@ -1,8 +1,11 @@
+// 图片多的就不用懒加载了
+import P1 from "../components/yang/Project1.vue";
+import P5 from "../components/yang/Project5.vue";
 const router = [
   {
     name: "P1",
     path: "/P1",
-    component: () => import("../components/yang/Project1.vue"),
+    component: P1,
   },
   {
     name: "P2",
@@ -22,7 +25,7 @@ const router = [
   {
     name: "P5",
     path: "/P5",
-    component: () => import("../components/yang/Project5.vue"),
+    component: P5,
   },
   {
     name: "P6",

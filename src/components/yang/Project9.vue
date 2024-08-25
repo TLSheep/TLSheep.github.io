@@ -1,26 +1,49 @@
 <template>
   <div class="container">
+    <!-- <div class="tip" :class="{tip_show:tip_show}" v-show="tip_show"></div> -->
     <audio
       :id="item.id_name"
       v-for="(item, index) in audios_list"
       :key="index"
       :src="base_url + item.src"
     ></audio>
+    <audio
+      :id="item.id_name"
+      v-for="(item, index) in music_list"
+      :key="index"
+      :src="music_base_url + item.src"
+    ></audio>
     <div class="buttons">
-      <button
-        class="btn"
-        v-for="(item, index) in audios_list"
-        :key="index"
-        @click="playSong(item.id_name)"
-      >
-        {{ item.s_name }}
-      </button>
+      <button class="btn btn_random" @click="random_play">随机播放</button>
+      <div class="audios_btns buttons">
+        <button
+          class="btn"
+          v-for="(item, index) in audios_list"
+          :key="index"
+          @click="playSong(item.id_name)"
+        >
+          {{ item.s_name }}
+        </button>
+      </div>
+      <div class="musics_btns buttons">
+        <button
+          class="btn music_btn"
+          v-for="(item, index) in music_list"
+          :key="index"
+          @click="playSong(item.id_name)"
+        >
+          {{ item.s_name }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
 <script setup>
 import { ref } from "vue";
 const base_url = ref("audios/");
+const music_base_url = ref("music/");
+// const tip_show = ref(false);
+const current_song_name = ref(null);
 const audios_list = ref([
   {
     id: 0,
@@ -69,12 +92,6 @@ const audios_list = ref([
     id_name: "swordB",
     s_name: "swordB",
     src: "swordB.mp3",
-  },
-  {
-    id: 8,
-    id_name: "lookatum",
-    s_name: "lookAtUM",
-    src: "lookatum.mp3",
   },
   {
     id: 9,
@@ -149,6 +166,44 @@ const audios_list = ref([
     src: "shit.mp3",
   },
 ]);
+const music_list = ref([
+  {
+    id_name: "光年之外 (热爱版) - G.E.M.邓紫棋,艾热 AIR",
+    s_name: "光年之外 (热爱版)",
+    src: "光年之外 (热爱版) - G.E.M.邓紫棋,艾热 AIR.flac",
+  },
+  {
+    id_name: "睡皇后 - G.E.M.邓紫棋",
+    s_name: "睡皇后",
+    src: "睡皇后 - G.E.M.邓紫棋.flac",
+  },
+  {
+    id_name: "再见 (Club Remix) - G.E.M.邓紫棋",
+    s_name: "再见 (Club Remix)",
+    src: "再见 (Club Remix) - G.E.M.邓紫棋.flac",
+  },
+  {
+    id_name: "FIND YOU - G.E.M.邓紫棋",
+    s_name: "FIND YOU",
+    src: "FIND YOU - G.E.M.邓紫棋.flac",
+  },
+  {
+    id_name: "Victoria - G.E.M.邓紫棋",
+    s_name: "Victoria",
+    src: "Victoria - G.E.M.邓紫棋.flac",
+  },
+  {
+    id_name: "I Really Want to Stay At Your House - Rosa Walton,Hallie Coggins",
+    s_name: "I Really Want to Stay At Your House",
+    src: "I Really Want to Stay At Your House - Rosa Walton,Hallie Coggins.flac",
+  },
+  {
+    id_name: "美好的事可不可以发生在我身上 - 康士坦的变化球",
+    s_name: "美好的事可不可以发生在我身上",
+    src: "美好的事可不可以发生在我身上 - 康士坦的变化球.flac",
+  },
+]);
+const all_songs = ref(audios_list.value.concat(music_list.value));
 let current_song = null;
 
 function playSong(name) {
@@ -164,6 +219,11 @@ function stopSongs() {
     song.currentTime = 0;
   }
 }
+function random_play() {
+  const random_index = Math.floor(Math.random() * all_songs.value.length);
+  playSong(all_songs.value[random_index].id_name);
+  current_song_name.value = all_songs.value[random_index].s_name;
+}
 </script>
 <style scoped>
 .container {
@@ -175,13 +235,18 @@ function stopSongs() {
   /* height: 100%; */
   height: calc(100vh - var(--homepage-top-bar-height));
   width: 100%;
+  position: relative;
 }
-
+.tip {
+  position: absolute;
+  box-sizing: content-box;
+}
 .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .btn {
@@ -194,6 +259,7 @@ function stopSongs() {
   font-size: 1.2rem;
   font-family: inherit;
   cursor: pointer;
+  user-select: none;
 }
 .btn:active {
   transform: scale(0.98);
@@ -201,5 +267,15 @@ function stopSongs() {
 
 .btn:hover {
   opacity: 0.9;
+}
+
+.btn_random {
+  /* width: 100%; */
+  /* width: 20px; */
+  /* height: 100%; */
+  background-color: #3a90f3;
+}
+.music_btn {
+  background-color: #f89c32;
 }
 </style>
