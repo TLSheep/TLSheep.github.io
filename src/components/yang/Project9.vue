@@ -1,11 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container" @click.stop="stopSongs">
     <!-- <div class="tip" :class="{tip_show:tip_show}" v-show="tip_show"></div> -->
     <audio
       :id="item.id_name"
       v-for="(item, index) in audios_list"
       :key="index"
       :src="base_url + item.src"
+      loop="true"
     ></audio>
     <audio
       :id="item.id_name"
@@ -14,23 +15,23 @@
       :src="music_base_url + item.src"
     ></audio>
     <div class="buttons">
-      <button class="btn btn_random" @click="random_play">随机播放</button>
-      <div class="audios_btns buttons">
+      <button class="btn btn_random" @click.stop="random_play">随机播放</button>
+      <div class="audios_btns">
         <button
           class="btn"
           v-for="(item, index) in audios_list"
           :key="index"
-          @click="playSong(item.id_name)"
+          @click.stop="playSong(item.id_name)"
         >
           {{ item.s_name }}
         </button>
       </div>
-      <div class="musics_btns buttons">
+      <div class="musics_btns">
         <button
           class="btn music_btn"
           v-for="(item, index) in music_list"
           :key="index"
-          @click="playSong(item.id_name)"
+          @click.stop="playSong(item.id_name)"
         >
           {{ item.s_name }}
         </button>
@@ -40,6 +41,8 @@
 </template>
 <script setup>
 import { ref } from "vue";
+const import_audios = import.meta.glob("./audios/*");
+const import_music = import.meta.glob("./music/*");
 const base_url = ref("audios/");
 const music_base_url = ref("music/");
 // const tip_show = ref(false);
@@ -170,37 +173,87 @@ const music_list = ref([
   {
     id_name: "光年之外 (热爱版) - G.E.M.邓紫棋,艾热 AIR",
     s_name: "光年之外 (热爱版)",
-    src: "光年之外 (热爱版) - G.E.M.邓紫棋,艾热 AIR.flac",
+    src: "guangnianzhiwai_reaiban.mp3",
   },
   {
     id_name: "睡皇后 - G.E.M.邓紫棋",
     s_name: "睡皇后",
-    src: "睡皇后 - G.E.M.邓紫棋.flac",
+    src: "shuihuanghou.mp3",
   },
   {
     id_name: "再见 (Club Remix) - G.E.M.邓紫棋",
     s_name: "再见 (Club Remix)",
-    src: "再见 (Club Remix) - G.E.M.邓紫棋.flac",
+    src: "zaijian(ClubRemix).mp3",
   },
   {
     id_name: "FIND YOU - G.E.M.邓紫棋",
     s_name: "FIND YOU",
-    src: "FIND YOU - G.E.M.邓紫棋.flac",
+    src: "FINDYOU.mp3",
   },
   {
-    id_name: "Victoria - G.E.M.邓紫棋",
-    s_name: "Victoria",
-    src: "Victoria - G.E.M.邓紫棋.flac",
+    id_name: "错过不错 - G.E.M.邓紫棋",
+    s_name: "错过不错",
+    src: "cuoguobucuo.mp3",
+  },
+  {
+    id_name: "Walk On Water - G.E.M.邓紫棋",
+    s_name: "Walk On Water",
+    src: "Walk_On_Water.mp3",
+  },
+  {
+    id_name: "来自天堂的魔鬼 - G.E.M.邓紫棋",
+    s_name: "来自天堂的魔鬼",
+    src: "laizitiantangdemogui.mp3",
   },
   {
     id_name: "I Really Want to Stay At Your House - Rosa Walton,Hallie Coggins",
     s_name: "I Really Want to Stay At Your House",
-    src: "I Really Want to Stay At Your House - Rosa Walton,Hallie Coggins.flac",
+    src: "I_Really_Want_to_Stay_At_Your_House.mp3",
+  },
+  {
+    id_name: "如果能忍住 - 暴躁的兔子",
+    s_name: "如果能忍住",
+    src: "ruguonengrenzhu.mp3",
   },
   {
     id_name: "美好的事可不可以发生在我身上 - 康士坦的变化球",
     s_name: "美好的事可不可以发生在我身上",
-    src: "美好的事可不可以发生在我身上 - 康士坦的变化球.flac",
+    src: "meihaodeshijebukeyifashengzaiwoshenshang.mp3",
+  },
+  {
+    id_name: "Take a Walk (A Cappella) - AaronicStuff",
+    s_name: "Take a Walk (A Cappella)",
+    src: "Take_a_Walk_(A_Cappella).mp3",
+  },
+  {
+    id_name: "Whistle - Laidback Luke,Tribbs,Bertie Scott",
+    s_name: "Whistle",
+    src: "Whistle.mp3",
+  },
+  {
+    id_name: "天気之子 - STRlighT",
+    s_name: "天気之子",
+    src: "tianqizhizi.mp3",
+  },
+  {
+    id_name: "Fortnight (BLONDISH Remix) - Taylor Swift,Post Malone,BLONDISH",
+    s_name: "Fortnight (BLONDISH Remix)",
+    src: "Fortnight_(BLONDISH_Remix).mp3",
+  },
+  {
+    id_name: "Dance Monkey - Tones and I",
+    s_name: "Dance Monkey",
+    src: "Dance_Monkey.mp3",
+  },
+  {
+    id_name: "在你左右 - 吴莫愁",
+    s_name: "在你左右",
+    src: "zainizuoyou.mp3",
+  },
+  {
+    id_name: "你要跳舞吗 - 新裤子",
+    s_name: "你要跳舞吗",
+    src: "niyaotiaowuma.mp3",
   },
 ]);
 const all_songs = ref(audios_list.value.concat(music_list.value));
@@ -227,13 +280,12 @@ function random_play() {
 </script>
 <style scoped>
 .container {
-  padding: 0 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #a164df;
-  /* height: 100%; */
-  height: calc(100vh - var(--homepage-top-bar-height));
+  height: 100%;
+  /* height: calc(100vh - var(--homepage-top-bar-height)); */
   width: 100%;
   position: relative;
 }
@@ -242,11 +294,19 @@ function random_play() {
   box-sizing: content-box;
 }
 .buttons {
+  padding: 0 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.buttons::-webkit-scrollbar {
+  /*隐藏滚动条*/
+  display: none;
 }
 
 .btn {
@@ -277,5 +337,17 @@ function random_play() {
 }
 .music_btn {
   background-color: #f89c32;
+}
+.audios_btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.musics_btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 </style>
