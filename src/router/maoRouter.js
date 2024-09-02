@@ -10,6 +10,7 @@ import SoundBoard from "../components/mao/SoundBoard.vue";
 import Jokes from "../components/mao/Jokes.vue";
 import EventKeyCode from "../components/mao/EventKeyCode.vue";
 import FAQCollapse from "@/components/mao/FAQCollapse.vue";
+import RandomChoicePicker from "@/components/mao/RandomChoicePicker.vue";
 
 const router = [
   {
@@ -71,6 +72,11 @@ const router = [
     name: "FAQCollapse",
     path: "/maoP12",
     component: FAQCollapse,
+  },
+  {
+    name: "RandomChoicePicker",
+    path: "/maoP13",
+    component: RandomChoicePicker,
   },
 ];
 
