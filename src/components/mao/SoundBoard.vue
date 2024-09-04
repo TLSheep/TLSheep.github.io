@@ -15,7 +15,7 @@
 const props = defineProps({
   sounds: {
     type: Array,
-    required: true,
+    required: false,
     default: () => [
       {
         id: 1,
