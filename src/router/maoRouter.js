@@ -11,6 +11,7 @@ import Jokes from "../components/mao/Jokes.vue";
 import EventKeyCode from "../components/mao/EventKeyCode.vue";
 import FAQCollapse from "@/components/mao/FAQCollapse.vue";
 import RandomChoicePicker from "@/components/mao/RandomChoicePicker.vue";
+import AnimatedNavigation from "@/components/mao/AnimatedNavigation.vue";
 
 const router = [
   {
@@ -77,6 +78,11 @@ const router = [
     name: "RandomChoicePicker",
     path: "/maoP13",
     component: RandomChoicePicker,
+  },
+  {
+    name: "AnimatedNavigation",
+    path: "/maoP14",
+    component: AnimatedNavigation,
   },
 ];
 
