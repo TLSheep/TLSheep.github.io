@@ -91,6 +91,24 @@ const router = [
     redirect: "/404",
     // component: () => import("../components/yang/Project17.vue"),
   },
+  {
+    name: "P18",
+    path: "/P18",
+    redirect: "/404",
+    // component: () => import("../components/yang/Project18.vue"),
+  },
+  {
+    name: "P19",
+    path: "/P19",
+    redirect: "/404",
+    // component: () => import("../components/yang/Project19.vue"),
+  },
+  {
+    name: "P20",
+    path: "/P20",
+    redirect: "/404",
+    // component: () => import("../components/yang/Project20.vue"),
+  },
 ];
 
 export default router;
