@@ -12,6 +12,7 @@ import EventKeyCode from "../components/mao/EventKeyCode.vue";
 import FAQCollapse from "@/components/mao/FAQCollapse.vue";
 import RandomChoicePicker from "@/components/mao/RandomChoicePicker.vue";
 import AnimatedNavigation from "@/components/mao/AnimatedNavigation.vue";
+import incrementCounter from "@/components/mao/incrementCounter.vue";
 
 const router = [
   {
@@ -83,6 +84,11 @@ const router = [
     name: "AnimatedNavigation",
     path: "/maoP14",
     component: AnimatedNavigation,
+  },
+  {
+    name: "incrementCounter",
+    path: "/maoP15",
+    component: incrementCounter,
   },
 ];
 
