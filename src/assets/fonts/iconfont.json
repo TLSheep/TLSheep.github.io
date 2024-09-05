@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "688458",
+      "name": "weixin",
+      "font_class": "weixin",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "4936984",
+      "name": "QQ",
+      "font_class": "QQ",
+      "unicode": "e882",
+      "unicode_decimal": 59522
+    },
+    {
+      "icon_id": "31766307",
+      "name": "小米-copy",
+      "font_class": "XiaoMi",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "40653226",
+      "name": "bilibili-copy",
+      "font_class": "bilibili2",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
       "icon_id": "2076220",
       "name": " 下拉箭头小",
       "font_class": "xialajiantouxiao",

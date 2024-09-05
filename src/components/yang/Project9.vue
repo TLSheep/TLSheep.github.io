@@ -1,19 +1,22 @@
 <template>
   <div class="container" @click.stop="stopSongs">
     <!-- <div class="tip" :class="{tip_show:tip_show}" v-show="tip_show"></div> -->
-    <audio
-      :id="item.id_name"
-      v-for="(item, index) in audios_list"
-      :key="index"
-      :src="base_url + item.src"
-      loop="true"
-    ></audio>
-    <audio
-      :id="item.id_name"
-      v-for="(item, index) in music_list"
-      :key="index"
-      :src="music_base_url + item.src"
-    ></audio>
+    <div>
+      <audio
+        :id="item.id_name"
+        v-for="(item, index) in audios_list"
+        :key="index"
+        :src="base_url + item.src"
+        loop
+      ></audio>
+      <audio
+        :id="item.id_name"
+        v-for="(item, index) in music_list"
+        :key="index"
+        :src="music_base_url + item.src"
+        loop
+      ></audio>
+    </div>
     <div class="buttons">
       <button class="btn btn_random" @click.stop="random_play">随机播放</button>
       <div class="audios_btns">
@@ -270,6 +273,7 @@ function stopSongs() {
     const song = document.getElementById(current_song);
     song.pause();
     song.currentTime = 0;
+    console.log(song.duration);
   }
 }
 function random_play() {
@@ -286,6 +290,7 @@ function random_play() {
   background-color: #a164df;
   height: 100%;
   /* height: calc(100vh - var(--homepage-top-bar-height)); */
+  padding-bottom: 50px;
   width: 100%;
   position: relative;
 }

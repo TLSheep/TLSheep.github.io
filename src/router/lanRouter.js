@@ -60,38 +60,36 @@ const router = [
   {
     name: "P12",
     path: "/P12",
-
-    component: () => import("../components/yang/Project10.vue"),
+    component: () => import("../components/yang/Project12.vue"),
   },
   {
     name: "P13",
     path: "/P13",
-    redirect: "/404",
-    component: () => import("../components/yang/Project10.vue"),
+    component: () => import("../components/yang/Project13.vue"),
   },
   {
     name: "P14",
     path: "/P14",
     redirect: "/404",
-    component: () => import("../components/yang/Project10.vue"),
+    // component: () => import("../components/yang/Project14.vue"),
   },
   {
     name: "P15",
     path: "/P15",
     redirect: "/404",
-    component: () => import("../components/yang/Project10.vue"),
+    // component: () => import("../components/yang/Project15.vue"),
   },
   {
     name: "P16",
     path: "/P16",
     redirect: "/404",
-    component: () => import("../components/yang/Project10.vue"),
+    // component: () => import("../components/yang/Project16.vue"),
   },
   {
     name: "P17",
     path: "/P17",
     redirect: "/404",
-    component: () => import("../components/yang/Project10.vue"),
+    // component: () => import("../components/yang/Project17.vue"),
   },
 ];
 
