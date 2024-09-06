@@ -14,6 +14,7 @@ import RandomChoicePicker from "@/components/mao/RandomChoicePicker.vue";
 import AnimatedNavigation from "@/components/mao/AnimatedNavigation.vue";
 import incrementCounter from "@/components/mao/IncrementCounter.vue";
 import DrinkWater from "@/components/mao/DrinkWater.vue";
+import BackgroundSlider from "@/components/mao/BackgroundSlider.vue";
 
 const router = [
   {
@@ -95,6 +96,11 @@ const router = [
     name: "DrinkWater",
     path: "/maoP16",
     component: DrinkWater,
+  },
+  {
+    name: "BackgroundSlider",
+    path: "/maoP17",
+    component: BackgroundSlider,
   },
 ];
 
