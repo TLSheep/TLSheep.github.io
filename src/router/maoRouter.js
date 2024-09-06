@@ -15,6 +15,7 @@ import AnimatedNavigation from "@/components/mao/AnimatedNavigation.vue";
 import incrementCounter from "@/components/mao/IncrementCounter.vue";
 import DrinkWater from "@/components/mao/DrinkWater.vue";
 import BackgroundSlider from "@/components/mao/BackgroundSlider.vue";
+import ThemeClock from "@/components/mao/ThemeClock.vue";
 
 const router = [
   {
@@ -101,6 +102,11 @@ const router = [
     name: "BackgroundSlider",
     path: "/maoP17",
     component: BackgroundSlider,
+  },
+  {
+    name: "ThemeClock",
+    path: "/maoP18",
+    component: ThemeClock,
   },
 ];
 
