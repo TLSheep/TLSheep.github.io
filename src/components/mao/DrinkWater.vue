@@ -104,9 +104,9 @@ const totalWater = computed(() => {
   background-color: #6ab3f8;
 }
 .all {
+  overflow: hidden;
   background-color: #6ab3f8;
   display: flex;
-  height: 330px;
   align-items: center;
   justify-content: center;
   transition: 0.3s ease;
