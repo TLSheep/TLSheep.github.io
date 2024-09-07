@@ -17,6 +17,7 @@ import DrinkWater from "@/components/mao/DrinkWater.vue";
 import BackgroundSlider from "@/components/mao/BackgroundSlider.vue";
 import ThemeClock from "@/components/mao/ThemeClock.vue";
 import ButtonRippleEffect from "@/components/mao/ButtonRippleEffect.vue";
+import DragDrop from "@/components/mao/DragDrop.vue";
 
 const router = [
   {
@@ -113,6 +114,11 @@ const router = [
     name: "ButtonRippleEffect",
     path: "/maoP19",
     component: ButtonRippleEffect,
+  },
+  {
+    name: "DragDrop",
+    path: "/maoP20",
+    component: DragDrop,
   },
 ];
 
