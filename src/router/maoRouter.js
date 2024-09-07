@@ -16,6 +16,7 @@ import incrementCounter from "@/components/mao/IncrementCounter.vue";
 import DrinkWater from "@/components/mao/DrinkWater.vue";
 import BackgroundSlider from "@/components/mao/BackgroundSlider.vue";
 import ThemeClock from "@/components/mao/ThemeClock.vue";
+import ButtonRippleEffect from "@/components/mao/ButtonRippleEffect.vue";
 
 const router = [
   {
@@ -107,6 +108,11 @@ const router = [
     name: "ThemeClock",
     path: "/maoP18",
     component: ThemeClock,
+  },
+  {
+    name: "ButtonRippleEffect",
+    path: "/maoP19",
+    component: ButtonRippleEffect,
   },
 ];
 
