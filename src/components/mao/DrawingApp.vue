@@ -112,6 +112,6 @@ const getRandomInt = (min, max) => {
 }
 
 .canvas {
-  background: #222;
+  background: #fff;
 }
 </style>
