@@ -18,6 +18,7 @@ import BackgroundSlider from "@/components/mao/BackgroundSlider.vue";
 import ThemeClock from "@/components/mao/ThemeClock.vue";
 import ButtonRippleEffect from "@/components/mao/ButtonRippleEffect.vue";
 import DragDrop from "@/components/mao/DragDrop.vue";
+import DrawingApp from "@/components/mao/DrawingApp.vue";
 
 const router = [
   {
@@ -119,6 +120,11 @@ const router = [
     name: "DragDrop",
     path: "/maoP20",
     component: DragDrop,
+  },
+  {
+    name: "DrawingApp",
+    path: "/maoP21",
+    component: DrawingApp,
   },
 ];
 
