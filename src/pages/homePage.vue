@@ -1,28 +1,12 @@
 <template>
-  <div class="container">这里是主页</div>
+  <div class="container"><DrawingApp></DrawingApp></div>
 </template>
 <script setup>
+import DrawingApp from "@/components/mao/DrawingApp.vue";
 </script>
 <style scoped>
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - var(--homepage-top-bar-height));
-  width: 100vw;
-  padding: 20vh 10vw;
-  background-color: aquamarine;
-  font-size: 48px;
-}
-.pro_btn {
-  background-color: rebeccapurple;
-  border-radius: 5px;
-  border: none;
-  color: #fff;
-  margin: 1rem;
-  padding: 1.5rem 3rem;
-  font-size: 1.2rem;
-  font-family: inherit;
-  cursor: pointer;
+  width: 100%;
+  height: 100%;
 }
 </style>
