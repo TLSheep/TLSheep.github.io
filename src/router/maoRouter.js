@@ -19,6 +19,7 @@ import ThemeClock from "@/components/mao/ThemeClock.vue";
 import ButtonRippleEffect from "@/components/mao/ButtonRippleEffect.vue";
 import DragDrop from "@/components/mao/DragDrop.vue";
 import DrawingApp from "@/components/mao/DrawingApp.vue";
+import KineticLoader from "@/components/mao/KineticLoader.vue";
 
 const router = [
   {
@@ -125,6 +126,11 @@ const router = [
     name: "DrawingApp",
     path: "/maoP21",
     component: DrawingApp,
+  },
+  {
+    name: "KineticLoader",
+    path: "/maoP22",
+    component: KineticLoader,
   },
 ];
 
