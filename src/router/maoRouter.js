@@ -20,6 +20,7 @@ import ButtonRippleEffect from "@/components/mao/ButtonRippleEffect.vue";
 import DragDrop from "@/components/mao/DragDrop.vue";
 import DrawingApp from "@/components/mao/DrawingApp.vue";
 import KineticLoader from "@/components/mao/KineticLoader.vue";
+import ContentPlaceHolder from "@/components/mao/ContentPlaceHolder.vue";
 
 const router = [
   {
@@ -131,6 +132,11 @@ const router = [
     name: "KineticLoader",
     path: "/maoP22",
     component: KineticLoader,
+  },
+  {
+    name: "ContentPlaceHolder",
+    path: "/maoP23",
+    component: ContentPlaceHolder,
   },
 ];
 
