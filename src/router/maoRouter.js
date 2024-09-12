@@ -22,6 +22,7 @@ import DrawingApp from "@/components/mao/DrawingApp.vue";
 import KineticLoader from "@/components/mao/KineticLoader.vue";
 import ContentPlaceHolder from "@/components/mao/ContentPlaceHolder.vue";
 import StickyNavigation from "@/components/mao/StickyNavigation.vue";
+import DoubleVerticalSlider from "@/components/mao/DoubleVerticalSlider.vue";
 
 const router = [
   {
@@ -143,6 +144,11 @@ const router = [
     name: "StickyNavigation",
     path: "/maoP24",
     component: StickyNavigation,
+  },
+  {
+    name: "DoubleVerticalSlider",
+    path: "/maoP25",
+    component: DoubleVerticalSlider,
   },
 ];
 
