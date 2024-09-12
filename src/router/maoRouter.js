@@ -21,6 +21,7 @@ import DragDrop from "@/components/mao/DragDrop.vue";
 import DrawingApp from "@/components/mao/DrawingApp.vue";
 import KineticLoader from "@/components/mao/KineticLoader.vue";
 import ContentPlaceHolder from "@/components/mao/ContentPlaceHolder.vue";
+import StickyNavigation from "@/components/mao/StickyNavigation.vue";
 
 const router = [
   {
@@ -137,6 +138,11 @@ const router = [
     name: "ContentPlaceHolder",
     path: "/maoP23",
     component: ContentPlaceHolder,
+  },
+  {
+    name: "StickyNavigation",
+    path: "/maoP24",
+    component: StickyNavigation,
   },
 ];
 
