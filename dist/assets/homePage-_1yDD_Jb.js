@@ -1,1 +1,0 @@
-import{_ as e,c as a,a as o,o as s,D as t}from"./index-zcvKV8v_.js";const c={class:"container"},_={__name:"homePage",setup(r){return(n,p)=>(s(),a("div",c,[o(t)]))}},d=e(_,[["__scopeId","data-v-95749b84"]]);export{d as default};

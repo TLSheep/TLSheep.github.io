@@ -23,6 +23,7 @@ import KineticLoader from "@/components/mao/KineticLoader.vue";
 import ContentPlaceHolder from "@/components/mao/ContentPlaceHolder.vue";
 import StickyNavigation from "@/components/mao/StickyNavigation.vue";
 import DoubleVerticalSlider from "@/components/mao/DoubleVerticalSlider.vue";
+import ToastNotification from "@/components/mao/ToastNotification.vue";
 
 const router = [
   {
@@ -149,6 +150,11 @@ const router = [
     name: "DoubleVerticalSlider",
     path: "/maoP25",
     component: DoubleVerticalSlider,
+  },
+  {
+    name: "ToastNotification",
+    path: "/maoP26",
+    component: ToastNotification,
   },
 ];
 
