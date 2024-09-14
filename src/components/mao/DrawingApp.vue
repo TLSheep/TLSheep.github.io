@@ -25,7 +25,7 @@ onMounted(() => {
 });
 
 class Graph {
-  constructor(pointNum = 30, maxDistance = 200) {
+  constructor(pointNum = 50, maxDistance = 200) {
     this.points = new Array(pointNum).fill(0).map(() => new Point());
     this.maxDistance = maxDistance;
   }

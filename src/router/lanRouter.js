@@ -107,20 +107,32 @@ const router = [
   {
     name: "P18",
     path: "/P18",
-    redirect: "/404",
-    // component: () => import("../components/yang/Project18.vue"),
+    // redirect: "/404",
+    component: () => import("../components/yang/Project18.vue"),
   },
   {
     name: "P19",
     path: "/P19",
-    redirect: "/404",
-    // component: () => import("../components/yang/Project19.vue"),
+    // redirect: "/404",
+    component: () => import("../components/yang/Project19.vue"),
   },
   {
     name: "P20",
     path: "/P20",
-    redirect: "/404",
-    // component: () => import("../components/yang/Project20.vue"),
+    // redirect: "/404",
+    component: () => import("../components/yang/Project20.vue"),
+  },
+  {
+    name: "P21",
+    path: "/P21",
+    // redirect: "/404",
+    component: () => import("../components/yang/Project21.vue"),
+  },
+  {
+    name: "P22",
+    path: "/P22",
+    // redirect: "/404",
+    component: () => import("../components/yang/Project22.vue"),
   },
 ];
 
