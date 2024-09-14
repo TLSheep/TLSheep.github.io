@@ -1,5 +1,5 @@
 <template>
-  <div class="container"><DrawingApp></DrawingApp></div>
+  <div class="container"><DrawingApp :pointNum="60"></DrawingApp></div>
 </template>
 <script setup>
 import DrawingApp from "@/components/mao/DrawingApp.vue";

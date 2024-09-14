@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <canvas ref="canvasRef" class="canvas"></canvas>
+    <canvas
+      @mousemove="handleMouseMove"
+      ref="canvasRef"
+      class="canvas"
+    ></canvas>
   </div>
 </template>
 
@@ -9,6 +13,15 @@ import { ref, onMounted } from "vue";
 
 const canvasRef = ref(null);
 const ctx = ref(null);
+const currentMousePosition = ref({ x: 0, y: 0 });
+
+const props = defineProps({
+  pointNum: { type: Number, default: 60 },
+  circleSize: {
+    type: Number,
+    default: 60,
+  },
+});
 
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -24,8 +37,12 @@ onMounted(() => {
   graph.draw();
 });
 
+const handleMouseMove = (e) => {
+  currentMousePosition.value = { x: e.offsetX, y: e.offsetY };
+};
+
 class Graph {
-  constructor(pointNum = 30, maxDistance = 200) {
+  constructor(pointNum = props.pointNum, maxDistance = 200) {
     this.points = new Array(pointNum).fill(0).map(() => new Point());
     this.maxDistance = maxDistance;
   }
@@ -36,6 +53,33 @@ class Graph {
     ctx.value.clearRect(0, 0, width, height);
     for (let i = 0; i < this.points.length; i++) {
       const p1 = this.points[i];
+      if (
+        p1.isInsideCircle(
+          currentMousePosition.value.x,
+          currentMousePosition.value.y
+        )
+      ) {
+        let tan =
+          (p1.y - currentMousePosition.value.y) /
+          (p1.x - currentMousePosition.value.x);
+        let theta = Math.atan(tan);
+        //和速度
+        let speed = Math.sqrt(p1.xspeed * p1.xspeed + p1.yspeed * p1.yspeed);
+        let speedx = speed * Math.cos(theta);
+        let speedy = speed * Math.sin(theta);
+        if (p1.x > currentMousePosition.value.x) {
+          p1.xspeed = speedx * 1.05;
+          p1.yspeed = speedy * 1.05;
+        } else {
+          p1.xspeed = -speedx * 1.05;
+          p1.yspeed = -speedy * 1.05;
+        }
+        //100ms后恢复
+        setTimeout(() => {
+          p1.xspeed = p1.xspeed / 1.05;
+          p1.yspeed = p1.yspeed / 1.05;
+        }, 100);
+      }
       p1.draw();
       for (let j = i + 1; j < this.points.length; j++) {
         const p2 = this.points[j];
@@ -84,6 +128,11 @@ class Point {
   }
   get y() {
     return this._y;
+  }
+  isInsideCircle(x, y) {
+    var dx = this.x - x;
+    var dy = this.y - y;
+    return dx * dx + dy * dy <= props.circleSize * props.circleSize;
   }
   draw() {
     if (this.lastDrawTime) {
