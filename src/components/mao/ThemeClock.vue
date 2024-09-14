@@ -89,14 +89,8 @@ const changeTheme = () => {
   height: 200px;
 }
 .min {
-  background-color: var(--btn-background-color);
-  position: absolute;
-  bottom: 50%;
-  left: 50%;
+  transform: translate(-50%, -100%) rotate(0deg);
   height: 100px;
-  width: 3px;
-  transform: translateX(-50%);
-  transform-origin: bottom center;
 }
 .sec {
   background-color: var(--clock-second-color);

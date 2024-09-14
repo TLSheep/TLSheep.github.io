@@ -21,6 +21,28 @@ export default defineConfig({
     image: "xlink:href",
     audio: "src", //新增这行
   },
+  server: {
+    proxy: {
+      "/douban/": {
+        target: "https://movie.douban.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/douban/, ""),
+        secure: false,
+      },
+      "/doubansearch/": {
+        target: "https://search.douban.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/doubansearch/, ""),
+        secure: false,
+      },
+      "/doubanimage/": {
+        target: "https://img1.doubanio.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/doubanimage/, ""),
+        secure: false,
+      },
+    },
+  },
   // build: {
   //   rollupOptions: {
   //     output: {

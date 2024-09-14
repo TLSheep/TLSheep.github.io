@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "32013427",
+      "name": "箭头",
+      "font_class": "jiantou",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
       "icon_id": "688458",
       "name": "weixin",
       "font_class": "weixin",
