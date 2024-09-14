@@ -3,8 +3,10 @@
     <button class="btn" @click="rippleClick">
       mother fuck click me
       <div
-        :style="{ top: height, left: width }"
-        :class="{ circle: isClick }"
+        v-for="(ripple, index) in ripples"
+        :key="index"
+        :style="{ top: ripple.height, left: ripple.width }"
+        class="circle"
       ></div>
     </button>
   </div>
@@ -12,16 +14,22 @@
 
 <script setup>
 import { ref } from "vue";
-const isClick = ref(false);
-const height = ref("0px");
-const width = ref("0px");
+const ripples = ref([]);
+
+let timeout = null;
 const rippleClick = (e) => {
-  isClick.value = !isClick.value;
-  const { offsetX: x, offsetY: y } = e;
-  height.value = `${y}px`;
-  width.value = `${x}px`;
-  setTimeout(() => {
-    isClick.value = false;
+  if (timeout) clearTimeout(timeout);
+  let rect = e.currentTarget.getBoundingClientRect();
+  // 计算鼠标相对于元素的坐标
+  let offsetX = e.clientX - rect.left;
+  let offsetY = e.clientY - rect.top;
+  let ripple = {};
+  ripple.height = `${offsetY}px`;
+  ripple.width = `${offsetX}px`;
+  console.log(ripple);
+  ripples.value.push(ripple);
+  timeout = setTimeout(() => {
+    ripples.value = [];
   }, 500);
 };
 </script>
@@ -53,8 +61,6 @@ const rippleClick = (e) => {
   height: 80px;
   background-color: #fff;
   border-radius: 50%;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%) scale(0);
   position: absolute;
   animation: scale 0.5s ease-out;
