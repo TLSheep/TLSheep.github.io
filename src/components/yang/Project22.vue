@@ -15,7 +15,7 @@ let jjjj = 0;
 // 像素检测标准
 const standard = { red: 180, bule: 180, green: 180 };
 // 基本偏移
-const offSet = { x: 400, y: 300 };
+const offSet = { x: 400, y: 100 };
 // 间隔
 const marginInside = 5;
 // 刷新间隔
@@ -26,9 +26,9 @@ const canvas_height = window.innerHeight * devicePixelRatio;
 const canvas_width = window.innerWidth * devicePixelRatio;
 
 const mousePoint = ref({ x: 0, y: 0 });
-let imgUrl = "/imgs/sgmm.png";
-// imgUrl = "/imgs/mm.jpg";
-// imgUrl = "/imgs/lc.png";
+let imgUrl = "imgs/sgmm.png";
+// imgUrl = "imgs/mm.jpg";
+// imgUrl = "imgs/lc.png";
 let ctx = null;
 let g = null;
 let mouseLastMoveTime = 0;
@@ -275,10 +275,10 @@ class Graph {
             }
           // break;
           case "normal":
-            point.destinationX = point.x + mofx * (15 - mdistance / 500);
-            point.destinationY = point.y + mofy * (15 - mdistance / 500);
-            // point.destinationY = point.y;
-            fake_speed_to(point, 50, refreshInterval);
+            // point.destinationX = point.x + mofx * (15 - mdistance / 500);
+            // point.destinationY = point.y + mofy * (15 - mdistance / 500);
+            // // point.destinationY = point.y;
+            // fake_speed_to(point, 50, refreshInterval);
             break;
           case "back":
             if (hdistance >= 2) {
