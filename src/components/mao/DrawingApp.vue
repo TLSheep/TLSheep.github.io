@@ -29,7 +29,7 @@ const height = window.innerHeight;
 const init = () => {
   ctx.value = canvasRef.value.getContext("2d");
   canvasRef.value.width = width;
-  canvasRef.value.height = height;
+  canvasRef.value.height = height - canvasRef.value.offsetTop;
 };
 onMounted(() => {
   init();
@@ -104,7 +104,7 @@ class Point {
   constructor() {
     this.r = 4;
     this._x = getRandomInt(0, width - this.r / 2);
-    this._y = getRandomInt(0, height - this.r / 2);
+    this._y = getRandomInt(0, canvasRef.value.height - this.r / 2);
     this.xspeed = getRandomInt(-50, 50);
     this.yspeed = getRandomInt(-50, 50);
     this.lastDrawTime = null;
@@ -120,7 +120,7 @@ class Point {
     return this._x;
   }
   set y(value) {
-    if (value < 0 || value > height) {
+    if (value < 0 || value > canvasRef.value.height) {
       this.yspeed = -this.yspeed;
       return;
     }

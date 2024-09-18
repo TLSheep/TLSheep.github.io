@@ -58,6 +58,12 @@ function img_dragsend() {
 }
 </script>
   <style scoped>
+div {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
 .container {
   height: 100%;
   width: 100%;
