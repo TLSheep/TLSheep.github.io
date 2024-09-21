@@ -136,7 +136,7 @@ function fake_speed_to(point, baseDistance, time = 200) {
   const destination = { x: point.destinationX, y: point.destinationY };
   // const currentPosition = { x: point.curretntX, y: point.curretntY };
   if (
-    get_distance(point, { x: point.destinationX, y: point.destinationY }) <= 2
+    get_distance(point, { x: point.destinationX, y: point.destinationY }) <= 1
   ) {
     point.curretntX = point.destinationX;
     point.curretntY = point.destinationY;
@@ -277,11 +277,12 @@ class Graph {
           case "normal":
             // point.destinationX = point.x + mofx * (15 - mdistance / 500);
             // point.destinationY = point.y + mofy * (15 - mdistance / 500);
-            // // point.destinationY = point.y;
-            // fake_speed_to(point, 50, refreshInterval);
+            point.destinationX = point.x;
+            point.destinationY = point.y;
+            fake_speed_to(point, 50, refreshInterval);
             break;
           case "back":
-            if (hdistance >= 2) {
+            if (hdistance >= 1) {
               // point.speedX = -oofx * 50 * (1 - 2 / odistance);
               // point.speedY = -oofy * 50 * (1 - 2 / odistance);
               // update_point_speed(point, oofx, oofy, 100);
