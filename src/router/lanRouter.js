@@ -16,8 +16,14 @@ import P14 from "../components/yang/Project14.vue";
 import P15 from "../components/yang/Project15.vue";
 import P16 from "../components/yang/Project16.vue";
 import P17 from "../components/yang/Project17.vue";
-// import P18 from "../components/yang/Project18.vue";
-// import P19 from "../components/yang/Project19.vue";
+import P18 from "../components/yang/Project18.vue";
+import P19 from "../components/yang/Project19.vue";
+import P20 from "../components/yang/Project20.vue";
+import P21 from "../components/yang/Project21.vue";
+import P22 from "../components/yang/Project22.vue";
+import P23 from "../components/yang/Project23.vue";
+import P24 from "../components/yang/Project24.vue";
+
 const router = [
   {
     name: "P1",
@@ -108,31 +114,43 @@ const router = [
     name: "P18",
     path: "/P18",
     // redirect: "/404",
-    component: () => import("../components/yang/Project18.vue"),
+    component: P18,
   },
   {
     name: "P19",
     path: "/P19",
     // redirect: "/404",
-    component: () => import("../components/yang/Project19.vue"),
+    component: P19,
   },
   {
     name: "P20",
     path: "/P20",
     // redirect: "/404",
-    component: () => import("../components/yang/Project20.vue"),
+    component: P20,
   },
   {
     name: "P21",
     path: "/P21",
     // redirect: "/404",
-    component: () => import("../components/yang/Project21.vue"),
+    component: P21,
   },
   {
     name: "P22",
     path: "/P22",
     // redirect: "/404",
-    component: () => import("../components/yang/Project22.vue"),
+    component: P22,
+  },
+  {
+    name: "P23",
+    path: "/P23",
+    // redirect: "/404",
+    component: P23,
+  },
+  {
+    name: "P24",
+    path: "/P24",
+    // redirect: "/404",
+    component: P24,
   },
 ];
 

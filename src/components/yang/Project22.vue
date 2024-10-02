@@ -22,6 +22,7 @@ const marginInside = 5;
 const refreshInterval = 20;
 const containerRef = ref(null);
 const canvasRef = ref(null);
+// 尺寸大小
 const canvas_height = window.innerHeight * devicePixelRatio;
 const canvas_width = window.innerWidth * devicePixelRatio;
 
@@ -41,12 +42,10 @@ onMounted(async () => {
   g.draw();
 });
 
-// console.log(pointsex);
 function init() {
   canvasRef.value.height = window.innerHeight * devicePixelRatio;
   canvasRef.value.width = window.innerWidth * devicePixelRatio;
   ctx = canvasRef.value.getContext("2d");
-  // console.log(canvasRef.value.width);
 }
 async function get_pattern_array(img_url) {
   let img = await loadImage(img_url);
@@ -126,15 +125,13 @@ function get_distance(p1, p2) {
     )
   );
 }
-
+// 获取二维数组映射到一维数组中的位置
 function get_index(x, y, len) {
   return (y * len + x) * 4;
 }
 
-function fake_speed_to(point, baseDistance, time = 200) {
-  point.timer++;
+function fake_speed_to(point, baseDistance, time = 20) {
   const destination = { x: point.destinationX, y: point.destinationY };
-  // const currentPosition = { x: point.curretntX, y: point.curretntY };
   if (
     get_distance(point, { x: point.destinationX, y: point.destinationY }) <= 1
   ) {
@@ -144,22 +141,21 @@ function fake_speed_to(point, baseDistance, time = 200) {
   }
   const jiaodu = get_jiaodu(point, destination);
   const speed = get_distance(point, destination) / baseDistance;
-  const dofx =
-    Math.cos(jiaodu) * (destination.x - point.curretntX < 0 ? -1 : 1) * speed;
-  const dofy =
-    Math.sin(jiaodu) * (destination.y - point.curretntY < 0 ? -1 : 1) * speed;
+  const dx = destination.x - point.curretntX < 0 ? -1 : 1;
+  const dy = destination.y - point.curretntY < 0 ? -1 : 1;
+  const dofx = Math.cos(jiaodu) * dx * (speed < 0.1 ? 0.1 : speed);
+  const dofy = Math.sin(jiaodu) * dy * (speed < 0.1 ? 0.1 : speed);
   // clearTimeout(point.timer);
-  jjjj++;
+
   point.curretntX += dofx * 2;
   point.curretntY += dofy * 2;
   setTimeout(
     () =>
-      // fake_speed_to_continue(point, dofx, dofy, time, point.timer),
+      //  fake_speed_to_continue(point, dofx, dofy, time, point.timer),
       fake_speed_to(point, baseDistance, time),
     time
   );
 }
-
 function fake_speed_to_continue(point, dofx, dofy, time, timer) {
   if (point.timer != timer) return;
   if (
@@ -177,36 +173,12 @@ function fake_speed_to_continue(point, dofx, dofy, time, timer) {
   );
 }
 
-function update_point_speed(point, ofx, ofy, time = 200) {
-  if (get_distance(point, point) < 2) {
-    point.curretntX = point.x;
-    point.curretntY = point.y;
-    return;
-  } else {
-    point.speedX /= 2;
-    point.speedY /= 2;
-  }
-
-  // 检查速度是否接近零
-  if (Math.abs(point.speedX) > 0.1 || Math.abs(point.speedY) > 0.1) {
-    // 继续定时更新
-    setTimeout(() => update_point_speed(point, ofx, ofy), time);
-  } else {
-    // 速度接近零时清零
-    point.speedX = 0;
-    point.speedY = 0;
-  }
-}
-function getArray(height, width) {
-  return Array.from({ length: height }, () =>
-    Array.from({ length: width }, () => 0)
-  );
-}
-function fake_move_by_speed() {}
 class Graph {
   points;
   mindistance_30 = 20;
   mindistance_50 = 50;
+  _lastDrawTime = Date.now();
+  _jjj = 0;
   constructor(points) {
     this.points = points;
     console.log(this.points);
@@ -214,11 +186,19 @@ class Graph {
 
   draw() {
     requestAnimationFrame(() => {
+      jjjj++;
       this.draw();
     });
     // console.log(canvasRef.value.width);
     ctx.clearRect(0, 0, canvas_width, canvas_height);
-    console.log(jjjj);
+    // 帧率
+    // console.log(
+    //   Math.floor(
+    //     ((jjjj - this._jjj) / (Date.now() - this._lastDrawTime)) * 1000
+    //   )
+    // );
+    this._jjj = jjjj;
+    this._lastDrawTime = Date.now();
     this.points.forEach((point) => {
       if (true) {
         const mouse = mousePoint.value;
@@ -235,7 +215,7 @@ class Graph {
         const mofy =
           Math.sin(jiaodu) * (point.curretntY - mouse.y < 0 ? -1 : 1);
 
-        switch (this.get_type(mdistance)) {
+        switch (this.get_type(mdistance, hdistance)) {
           case "quick_out":
             point.curretntX += Math.floor(
               (this.mindistance_30 - mdistance) * mofx
@@ -255,7 +235,7 @@ class Graph {
               Math.floor((this.mindistance_50 - mdistance) * mofy);
             fake_speed_to(point, mdistance, refreshInterval);
             break;
-          case "around3":
+          case "around":
             // 判断是否超出边界
             if (
               (point.curretntX - point.x) * (point.curretntX - mouse.x) >= 0 &&
@@ -267,7 +247,7 @@ class Graph {
               // 沿着切线方向行进
               point.destinationX = point.curretntX + 2 * Math.abs(mofy) * xx;
               point.destinationY = point.curretntY + 2 * Math.abs(mofx) * yy;
-              fake_speed_to(point, 0.5, refreshInterval);
+              // fake_speed_to(point, 0.5, refreshInterval);
               break;
             } else {
               // 超出边界，可以回归原定位置
@@ -283,9 +263,6 @@ class Graph {
             break;
           case "back":
             if (hdistance >= 1) {
-              // point.speedX = -oofx * 50 * (1 - 2 / odistance);
-              // point.speedY = -oofy * 50 * (1 - 2 / odistance);
-              // update_point_speed(point, oofx, oofy, 100);
               point.destinationX = point.x;
               point.destinationY = point.y;
               fake_speed_to(point, 100, refreshInterval);
@@ -301,7 +278,7 @@ class Graph {
       point.draw();
     });
   }
-  get_type(distance) {
+  get_type(distance, hdistance) {
     if (distance < 1000) {
       if (distance < this.mindistance_30) {
         // 迅速扩散
@@ -313,8 +290,8 @@ class Graph {
         // 缓慢外扩
         return "slow_out";
       } else if (
-        distance >= this.mindistance_50 &&
-        distance < this.mindistance_50 + 5
+        hdistance >= this.mindistance_50 &&
+        hdistance < this.mindistance_50 + 5
       ) {
         // 环绕
         return "around";
@@ -347,7 +324,6 @@ class Point {
     this.color = color;
     this.lastDrawTime = Date.now();
     this.mouseLastMoveTime = 0;
-    this.timer = 0;
   }
 
   draw() {
@@ -355,8 +331,6 @@ class Point {
     ctx.arc(this.curretntX, this.curretntY, this.radius, 0, Math.PI * 2);
     ctx.fillStyle = this.color;
     ctx.fill();
-    // ctx.restore();
-    // ctx.save();
   }
 }
 

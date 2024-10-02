@@ -2,6 +2,7 @@
   <div class="container">
     <canvas
       @mousemove="handleMouseMove"
+      @click="handleMouseClick"
       ref="canvasRef"
       class="canvas"
     ></canvas>
@@ -14,6 +15,7 @@ import { ref, onMounted } from "vue";
 const canvasRef = ref(null);
 const ctx = ref(null);
 const currentMousePosition = ref({ x: 0, y: 0 });
+const currentMouseClickPosition = ref({ x: -1000, y: -1000 });
 
 const props = defineProps({
   pointNum: { type: Number, default: 60 },
@@ -39,6 +41,9 @@ onMounted(() => {
 
 const handleMouseMove = (e) => {
   currentMousePosition.value = { x: e.offsetX, y: e.offsetY };
+};
+const handleMouseClick = (e) => {
+  currentMouseClickPosition.value = { x: e.offsetX, y: e.offsetY };
 };
 
 class Graph {
@@ -67,12 +72,18 @@ class Graph {
         let speed = Math.sqrt(p1.xspeed * p1.xspeed + p1.yspeed * p1.yspeed);
         let speedx = speed * Math.cos(theta);
         let speedy = speed * Math.sin(theta);
+        // 速度倍率
+        let alpha = 1.05;
+        if (isClickHere() && speed < 400) {
+          alpha = 2;
+          console.log(speed * 2);
+        }
         if (p1.x > currentMousePosition.value.x) {
-          p1.xspeed = speedx * 1.05;
-          p1.yspeed = speedy * 1.05;
+          p1.xspeed = speedx * alpha > 400 ? 400 : speedx * alpha;
+          p1.yspeed = speedy * alpha > 400 ? 400 : speedy * alpha;
         } else {
-          p1.xspeed = -speedx * 1.05;
-          p1.yspeed = -speedy * 1.05;
+          p1.xspeed = -speedx * alpha < -400 ? -400 : -speedx * alpha;
+          p1.yspeed = -speedy * alpha < -400 ? -400 : -speedy * alpha;
         }
         //100ms后恢复
         setTimeout(() => {
@@ -97,6 +108,8 @@ class Graph {
         ctx.value.stroke();
       }
     }
+    // 重置鼠标点击位置
+    currentMouseClickPosition.value = { x: -1000, y: -1000 };
   }
 }
 
@@ -149,6 +162,14 @@ class Point {
   }
 }
 
+const isClickHere = () => {
+  return (
+    Math.abs(currentMouseClickPosition.value.x - currentMousePosition.value.x) <
+      10 &&
+    Math.abs(currentMouseClickPosition.value.y - currentMousePosition.value.y) <
+      10
+  );
+};
 const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };

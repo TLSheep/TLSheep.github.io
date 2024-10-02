@@ -1,1 +1,0 @@
-import{_ as e,c as a,a as o,o as t,D as s}from"./index-ry5PV9Iv.js";const c={class:"container"},_={__name:"homePage",setup(n){return(r,p)=>(t(),a("div",c,[o(s,{pointNum:60})]))}},d=e(_,[["__scopeId","data-v-ed074263"]]);export{d as default};
