@@ -27,11 +27,12 @@ const props = defineProps({
 
 const width = window.innerWidth;
 const height = window.innerHeight;
-
+let canvas_height;
 const init = () => {
   ctx.value = canvasRef.value.getContext("2d");
   canvasRef.value.width = width;
   canvasRef.value.height = height - canvasRef.value.offsetTop;
+  canvas_height = canvasRef.value.height;
 };
 onMounted(() => {
   init();
@@ -76,7 +77,7 @@ class Graph {
         let alpha = 1.05;
         if (isClickHere() && speed < 400) {
           alpha = 2;
-          console.log(speed * 2);
+          // console.log(speed * 2);
         }
         if (p1.x > currentMousePosition.value.x) {
           p1.xspeed = speedx * alpha > 400 ? 400 : speedx * alpha;
@@ -117,7 +118,7 @@ class Point {
   constructor() {
     this.r = 4;
     this._x = getRandomInt(0, width - this.r / 2);
-    this._y = getRandomInt(0, canvasRef.value.height - this.r / 2);
+    this._y = getRandomInt(0, canvas_height - this.r / 2);
     this.xspeed = getRandomInt(-50, 50);
     this.yspeed = getRandomInt(-50, 50);
     this.lastDrawTime = null;
@@ -133,7 +134,7 @@ class Point {
     return this._x;
   }
   set y(value) {
-    if (value < 0 || value > canvasRef.value.height) {
+    if (value < 0 || value > canvas_height) {
       this.yspeed = -this.yspeed;
       return;
     }
